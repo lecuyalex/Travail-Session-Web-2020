@@ -3,33 +3,43 @@
 <head>
     <meta charset="UTF-8"/>
     <script src="https://kit.fontawesome.com/86aa9796b2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/login.css"/>
+    <link rel="stylesheet" href="../css/login_signin.css"/>
     <title>Connexion</title>
+    <link rel="icon" href="../img/handshake-solid.svg" style="color: white">
+    <script src="../js/login.js"></script>
 </head>
 <body>
-<div class="content">
-    <div class="signin-signup">
-        <form action="#" class="sign-in-form">
-            <h2 class="title">Connecte toi</h2>
-            <label class="typeInsert" for="email">Courriel</label>
-            <div class="input-field">
-                <input type="email" id="email" name="email"/>
-                <i class="fas fa-envelope"></i>
-            </div>
-            <label class="typeInsert" for="email">Mot de passe</label>
-            <div class="input-field">
-                <input type="password" id="pwd" name="pwd"/>
-                <i class="fas fa-lock"></i>
-            </div>
-            <div class="forgotPassword">
-                <a href="#" class="forgot">Mot de passe oublié?</a>
-            </div>
-            <input type="submit" value="Login" class="btn solid"/>
-        </form>
+    <div class="content">
+
+        <div class="signin-signup">
+            <form action="#" class="sign-in-form">
+
+                    <h2 class="title">Connecte toi</h2>
+
+                <label class="typeInsert" for="email">Courriel</label>
+                <div class="input-field">
+                    <input type="email" id="email" name="email"/>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <label class="typeInsert" for="pwd">Mot de passe</label>
+                <div class="input-field">
+                    <input type="password" id="pwd" name="pwd"/>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="bottom_link">
+                    <div class="forgotPassword">
+                        <a href="#" class="forgot">Mot de passe oublié?</a>
+                    </div>
+                    <div class="change">
+                        <a href="signin.html" class="forgot">Créer un compte</a>
+                    </div>
+                </div>
+
+                <input type="submit" value="Login" class="btn solid"/>
+            </form>
+        </div>
     </div>
 </div>
-
-
 
 
 </body>

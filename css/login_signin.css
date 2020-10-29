@@ -12,41 +12,34 @@ input {
     font-family: "Poppins", sans-serif;
 }
 
+.titre_logo {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
 .content {
     width: 100%;
     height: 100%;
     position: absolute;
-    background-image: url("../img/background.jpg");
+    background-image: url("../img/test.png");
     background-position: center center;
-
-    /* Background image doesn't tile */
-    background-repeat: no-repeat;
-
-    /* Background image is fixed in the viewport so that it doesn't move when
-       the content's height is greater than the image's height */
     background-attachment: fixed;
-
-    /* This is what makes the background image rescale based
-       on the container's size */
-    background-size: cover;
-
-    /* Set a background color that will be displayed
-       while the background image is loading */
     background-color: #464646;
 }
 
 .signin-signup {
     padding: 20px;
-    background: rgba(0, 0, 0, 0.55);
-
+    background: rgb(255, 255, 255);
     position: absolute;
     top: 50%;
     border-radius: 5px;
     transform: translate(-50%, -50%);
     left: 50%;
-    width: 400px;
+    width: 450px;
     height: auto;
-
+    border: 2px solid #bfbcbc;
 }
 
 form {
@@ -59,43 +52,51 @@ form {
 
 .title {
     font-size: 40px;
-    color: #dedcdc;
+    color: #838080;
 }
 
-.forgotPassword{
+.forgotPassword, .change{
 
     font-weight: 450;
     font-size: 15px;
-    color: #dedcdc;
+    color: #838080;
     margin-top: 10px;
-    max-width: 380px;
+    max-width: 480px;
     width: 100%;
-    text-align: left;
-
 }
 
 .forgot {
-    color: #dedcdc;
+    color: #838080;
     text-decoration: none;
+
 }
-.forgot:hover{
+.bottom_link{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+
+}
+.forgot:hover {
 
     color: #55925f;
     transition: .3s;
 }
+
 .typeInsert {
     font-weight: 450;
     font-size: 25px;
-    color: #dedcdc;
+    color: #838080;
     margin-top: 20px;
-    max-width: 380px;
+    max-width: 100%;
     width: 100%;
     text-align: left;
 }
 
 .input-field {
     border: 1px solid #dedcdc;
-    max-width: 380px;
+    max-width: 100%;
     width: 100%;
     height: 60px;
     display: flex;
@@ -110,11 +111,11 @@ form {
     text-align: center;
     line-height: 55px;
     opacity: 70%;
-    color: #bfbcbc;
+    color: #838080;
 }
 
 .input-field input {
-    color: #bfbcbc;
+    color: #838080;
     width: 75%;
     margin-left: 15px;
     background: none;
@@ -125,15 +126,16 @@ form {
     font-size: 1.1rem;
 }
 
-.input-field.input-field:focus-within {
-    border: 2px solid #bfbebe;
+.input-field:focus-within {
+    border: 2px solid #838080;
     transition: .2s;
 }
 
 .input-field input::placeholder {
-    color: #aaa;
+    color: #838080;
     font-weight: 500;
 }
+
 
 
 .btn {
@@ -154,7 +156,5 @@ form {
 
 .btn:hover {
     background-color: #3d6044;
+
 }
-
-
-
