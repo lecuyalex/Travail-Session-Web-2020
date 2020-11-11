@@ -4,14 +4,16 @@
     <meta charset="UTF-8"/>
     <script src="https://kit.fontawesome.com/86aa9796b2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/login_signin.css"/>
+    <script src="../js/login.js"></script>
     <title>Connexion</title>
     <link rel="icon" href="../img/handshake-solid.svg" style="color: white">
 </head>
 <body>
+
 <div class="content">
 
     <div class="signin-signup">
-        <form action="#" class="sign-in-form">
+        <form class="sign-in-form" method="post">
 
             <h2 class="title">Inscris toi!</h2>
 
@@ -44,7 +46,7 @@
                 <div class="change">
                     <a href="login.html" class="forgot">Déjà un compte?</a>
                 </div>
-                <input type="submit" value="Login" class="btn solid"/>
+                <input type="submit" value="S'inscrire" class="btn solid" onclick="ajouter()"/>
             </div>
         </form>
     </div>

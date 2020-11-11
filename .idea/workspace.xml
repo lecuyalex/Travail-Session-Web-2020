@@ -22,6 +22,8 @@
     <list default="true" id="24fc7a72-32d7-4782-8c29-c47c0c89c41c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/signin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/bd.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,16 +55,18 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../wamp64/www/php/bd.php" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alecu\Documents\gitProject\Travail-Session-Web-2020\js" />
+      <recent name="C:\Users\alecu\Documents\gitProject\Travail-Session-Web-2020\html" />
+      <recent name="C:\wamp64\www\php" />
       <recent name="C:\Users\alecu\Documents\gitProject\Travail-Session-Web-2020\img" />
       <recent name="C:\Users\alecu\Documents\gitProject\Travail-Session-Web-2020\css" />
-      <recent name="C:\Users\alecu\Documents\gitProject\Travail-Session-Web-2020" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -76,6 +80,7 @@
       <workItem from="1603729250997" duration="687000" />
       <workItem from="1603994775551" duration="7481000" />
       <workItem from="1604281123039" duration="1298000" />
+      <workItem from="1604943914204" duration="12322000" />
     </task>
     <servers />
   </component>
@@ -99,10 +104,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603743775841" />
-    <state x="1220" y="278" key="FileChooserDialogImpl" timestamp="1603995399765">
+    <state x="1220" y="278" key="FileChooserDialogImpl" timestamp="1605127858846">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="1220" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605127858846" />
     <state x="1220" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603995399765" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1604946369772">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604946369772" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1603729260189">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
