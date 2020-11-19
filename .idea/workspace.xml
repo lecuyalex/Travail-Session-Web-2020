@@ -20,10 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24fc7a72-32d7-4782-8c29-c47c0c89c41c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/bd.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/logo_white.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Travail-Session-Web-2020.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Travail-Session-Web-2020.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/login_signin.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/login_signin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/signin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/logo_transparent.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/bd.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +53,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1jQHAHWzqnOY8OufkPC3scGcsuP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -55,18 +64,21 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../wamp64/www/php/bd.php" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/img" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Travail-Session-Web-2020\img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Travail-Session-Web-2020" />
       <recent name="C:\Users\alecu\Documents\gitProject\Travail-Session-Web-2020\js" />
       <recent name="C:\Users\alecu\Documents\gitProject\Travail-Session-Web-2020\html" />
       <recent name="C:\wamp64\www\php" />
       <recent name="C:\Users\alecu\Documents\gitProject\Travail-Session-Web-2020\img" />
-      <recent name="C:\Users\alecu\Documents\gitProject\Travail-Session-Web-2020\css" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -80,7 +92,11 @@
       <workItem from="1603729250997" duration="687000" />
       <workItem from="1603994775551" duration="7481000" />
       <workItem from="1604281123039" duration="1298000" />
-      <workItem from="1604943914204" duration="12322000" />
+      <workItem from="1604943914204" duration="15997000" />
+      <workItem from="1605206401875" duration="1482000" />
+      <workItem from="1605494456629" duration="14584000" />
+      <workItem from="1605565130720" duration="141000" />
+      <workItem from="1605725236993" duration="3086000" />
     </task>
     <servers />
   </component>
@@ -99,23 +115,50 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
   <component name="WindowStateProjectService">
+    <state x="2460" y="175" key="#CLI_Interpreters" timestamp="1605207144568">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2460" y="175" key="#CLI_Interpreters/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605207144568" />
+    <state x="2587" y="163" key="#PHP" timestamp="1605207150344">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2587" y="163" key="#PHP/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605207150344" />
+    <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605206944447">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605206944447" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603743775841">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603743775841" />
-    <state x="1220" y="278" key="FileChooserDialogImpl" timestamp="1605127858846">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="3140" y="278" key="FileChooserDialogImpl" timestamp="1605207138671">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="1220" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1605127858846" />
+    <state x="3140" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605207138671" />
     <state x="1220" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603995399765" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1604946369772">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604946369772" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1603729260189">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2381" y="165" key="SettingsEditor" timestamp="1605496243714">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="2381" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605496243714" />
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603729260189" />
+    <state x="2873" y="0" width="974" height="1047" key="dock-window-1" timestamp="1605557893731">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2873" y="0" width="974" height="1047" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605557893731" />
+    <state x="2218" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1605558200598">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2218" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605558200598" />
   </component>
 </project>

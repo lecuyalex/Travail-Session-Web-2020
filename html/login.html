@@ -4,9 +4,12 @@
     <meta charset="UTF-8"/>
     <script src="https://kit.fontawesome.com/86aa9796b2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/login_signin.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/login.js" ></script>
     <title>Connexion</title>
-    <link rel="icon" href="../img/handshake-solid.svg" style="color: white">
-    <script src="../js/login.js"></script>
+    <link rel="icon" type="image/png" href="../img/logo.png" style="color: white">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
 </head>
 <body>
     <div class="content">
@@ -16,26 +19,26 @@
 
                     <h2 class="title">Connecte toi</h2>
 
-                <label class="typeInsert" for="email">Courriel</label>
+                <label class="typeInsert" for="login_email">Courriel</label>
                 <div class="input-field">
-                    <input type="email" id="email" name="email"/>
+                    <input type="email" id="login_email" name="email"/>
                     <i class="fas fa-envelope"></i>
                 </div>
-                <label class="typeInsert" for="pwd">Mot de passe</label>
+                <label class="typeInsert" for="login_pwd">Mot de passe</label>
                 <div class="input-field">
-                    <input type="password" id="pwd" name="pwd"/>
+                    <input type="password" id="login_pwd" name="pwd"/>
                     <i class="fas fa-lock"></i>
                 </div>
                 <div class="bottom_link">
                     <div class="forgotPassword">
-                        <a href="#" class="forgot">Mot de passe oublié?</a>
+                        <a href="#"  id="forgotPassword" class="forgot">Mot de passe oublié?</a>
                     </div>
                     <div class="change">
                         <a href="signin.html" class="forgot">Créer un compte</a>
                     </div>
                 </div>
 
-                <input type="submit" value="Login" class="btn solid"/>
+                <input type="submit" value="Login" class="btn solid" id="bt_login"/>
             </form>
         </div>
     </div>
