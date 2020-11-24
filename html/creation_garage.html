@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Résultats de la recherche</title>
+    <link rel="stylesheet" href="../css/Style-Accueil.css">
+</head>
+
+    <!--Body du site-->
+    <body style="background-color:#f8f9f9">
+
+        <!--Partie principale du site-->
+		<div style="background-color:#84a4d9; width:100%; height:10%; background-color:white; box-shadow: 3px 3px 5px 6px #ccc; ">
+            <div style="width:70%; margin-left:15%; height:10%; padding:30px; display:flex; justify-content:flex-end;">
+
+				<div style="display:flex; justify-content:flex-start;height:100px; width:50%;">
+					<div style="width:25%;">
+						<img src="Ressources-Supplementaires/logo.png" style="border:1px solid black; height:100%">
+					</div>
+
+					<div style="width:30%;">
+						<input type="text" name="recherche" id="recherche" style="color:#808080; width:100%; height:30%; margin-top:15%;">
+					</div>
+					
+					<div style="width:40%;">
+						<input type="submit" name="confirmer" id="confirmer" value="Rechercher" style="width:80%; height:70%; margin-top:5%; margin-left:15%;">
+					</div>
+				</div>
+					
+				<div style="width:50%; display:flex; justify-content:space-around;">
+						<div style="width:10%;">
+							<h2 style="margin-top:60%;">EN</h2>
+						</div>
+						
+						<div style="text-align:center; font-size:25px; display:flex; justify-content:center; width:80%;">
+							<a style="margin-top:7%;" href="www.google.com">Voir mon compte</a>
+							<a style="margin-top:7%; margin-left:7%;" href="www.google.com">Créer une annonce</a>
+						</div>
+				</div>
+            </div>
+		</div>
+			
+			<!--Partie infos-->
+				
+				<div style="padding:2%; width:50%; margin-left:25%; margin-top:2%; box-shadow: 3px 3px 5px 6px #ccc; border-radius:10px; display:flex; justify-content:space-around;">
+					<!--Photo-->
+					<div style="width:35%;">
+						<img src="Ressources-Supplementaires/vente-de-garage.jpg" style="width:100%; height:300px;"> <br>
+						<label for="image">Insérer une image :</label>
+						<input type="file" id="image" name="image">
+					</div>
+				
+					<!--Informations-->
+					<div style="width:35%;">
+						<label for="titre">Titre :</label> <br>
+						<input type="text" name="titre" id="titre" style="width:"> <br><br>
+						<label for="date">Date :</label> <br>
+						<input type="text" name="date" id="date"> <br><br>
+						<label for="adresse">Adresse :</label> <br>
+						<input type="text" name="adresse" id="adresse"> <br><br>
+						<label for="createur">Créateur :</label> <br>
+						<input type="text" name="createur" id="createur"> <br><br><br><br>
+						
+						<input type="submit" name="confirmer" value="Confirmer" style="padding:2%; width:60%;"> <br><br>
+					</div>
+				</div>
+			
+			
+		</div>
+		
+	</body>

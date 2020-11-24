@@ -3,83 +3,87 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Accueil</title>
+    <title>Hello Garage</title>
     <link rel="stylesheet" href="../css/Style-Accueil.css">
 </head>
 
     <!--Body du site-->
-    <body>
+    <body style="background-color:#f8f9f9">
 
         <!--Partie principale du site-->
-		<div style="background-color:#84a4d9; width:60%; height:70%; margin-left: 20%;">
-            <div style="width:94%; display:flex; justify-content: space-between; height:10%; background-color:gray; background-color:#84a4d9; padding:30px;">
+		<div style="background-color:#84a4d9; width:100%; height:10%; background-color:white; box-shadow: 3px 3px 5px 6px #ccc; ">
+            <div style="width:70%; margin-left:15%; height:10%; padding:30px; display:flex; justify-content:flex-end;">
 
-                <div style="width:15%; border:1px solid black; background-color:#2f4b7a; padding:2%; color:white;">
-                   <!-- <img src="Ressources-Supplémentaires\logo.jpg" style="height: 100%; width:70%;">-->
-				   PATATE SHOW
-                </div>
-
-                <div style="width:30%; border:1px solid black; background-color:#2f4b7a; padding:10px;">
-                    <label for="recherche" style="font-size:25px;color:white;">Rechercher</label>
-                    <input type="text" name="recherche" id="recherche">
-                </div>
-
-                <div style="width:20%; border:1px solid black; background-color:#2f4b7a; padding:10px;">
-					<div style="text-align:center; font-size:25px; color:white;">
-						Connexion
+				<div style="display:flex; justify-content:flex-start;height:100px; width:50%;">
+					<div style="width:25%;">
+						<img src="Ressources-Supplementaires/logo.png" style="border:1px solid black; height:100%">
 					</div>
-                </div>
 
+					<div style="width:30%;">
+						<input type="text" name="recherche" id="recherche" style="color:#808080; width:100%; height:30%; margin-top:15%;">
+					</div>
+					
+					<div style="width:40%;">
+						<input type="submit" name="confirmer" id="confirmer" value="Rechercher" style="width:80%; height:70%; margin-top:5%; margin-left:15%;">
+					</div>
+				</div>
+					
+				<div style="width:50%; display:flex; justify-content:space-around;">
+						<div style="width:10%;">
+							<h2 style="margin-top:60%;">EN</h2>
+						</div>
+						
+						<div style="text-align:center; font-size:25px; display:flex; justify-content:center; width:80%;">
+							<a style="margin-top:7%;" href="www.google.com">Voir mon compte</a>
+							<a style="margin-top:7%; margin-left:7%;" href="www.google.com">Créer une annonce</a>
+						</div>
+				</div>
             </div>
-		
-		
-			<hr>
+		</div>
 		
 
-            <div style="width:94%; display: flex; justify-content: space-between; background-color:#84a4d9; padding:30px;">
-			
-				<div style="width:12%; height:10%; border:1px solid black; background-color:#6c7687; text-align:center; padding:10px;">
-					<p style="color:white;">Jardinage</p>
-				</div>
-				<div style="width:12%; height:10%; border:1px solid black; background-color:#6c7687; text-align:center; padding:10px;">
-					<p style="color:white;">Électroménager</p>
-				</div>
-				<div style="width:12%; height:10%; border:1px solid black; background-color:#6c7687; text-align:center; padding:10px;">
-					<p style="color:white;">Électronique</p>
-				</div>
-				<div style="width:12%; height:10%; border:1px solid black; background-color:#6c7687; text-align:center; padding:10px;">
-					<p style="color:white;">Mécanique</p>
-				</div>
-				<div style="width:12%; height:10%; border:1px solid black; background-color:#6c7687; text-align:center; padding:10px;">
-					<p style="color:white;">Objets d'intérieurs</p>
-				</div>
-				<div style="width:12%; height:10%; border:1px solid black; background-color:#6c7687; text-align:center; padding:10px;">
-					<p style="color:white;">Objets d'extérieurs</p>
-				</div>
-				
+            <div style="width:50%; margin-left:25%; display: flex; justify-content: space-between; padding:30px;">
+				<a href="www.google.com" style="text-decoration:none; color:inherit;">
+					<p style="padding:3%; box-shadow: 3px 3px 5px 6px #ccc; border-radius:10px; color:none;">Jardinage</p>
+				</a>			
+				<a href="www.google.com" style="text-decoration:none; color:inherit;">
+					<p style="padding:2%; box-shadow: 3px 3px 5px 6px #ccc; border-radius:10px;">Électroménager</p>
+				</a>
+				<a href="www.google.com" style="text-decoration:none; color:inherit;">
+					<p style="padding:2%; box-shadow: 3px 3px 5px 6px #ccc; border-radius:10px;">Électronique</p>
+				</a>
+				<a href="www.google.com" style="text-decoration:none; color:inherit;">
+					<p style="padding:2%; box-shadow: 3px 3px 5px 6px #ccc; border-radius:10px;">Mécanique</p>
+				</a>
+				<a href="www.google.com" style="text-decoration:none; color:inherit;">
+					<p style="padding:2%; box-shadow: 3px 3px 5px 6px #ccc; border-radius:10px;">Objets d'intérieurs</p>
+				</a>
+				<a href="www.google.com" style="text-decoration:none; color:inherit;">
+					<p style="padding:2%; box-shadow: 3px 3px 5px 6px #ccc; border-radius:10px;">Objets d'extérieurs</p>
+				</a>
             </div>
 
 			<!--Le slideshow-->
-            <div style="margin-top:20px; height: 60%;" style="box-sizing:border-box; background-color:#84a4d9; padding:30px; padding-bottom:200px;">
+            <div style="width:50%; margin-left:25%; padding:2%; box-shadow: 3px 3px 5px 6px #ccc; border-radius:10px;">
                 <!-- Slideshow container -->
                 <div class="slideshow-container">
 
                     <!-- Full-width images with number and caption text -->
                     <div class="mySlides fade" style="box-sizing:border-box">
                         <div class="numbertext">1 / 3</div>
-                        <img src="Ressources-Supplementaires/img1.jpg" style="width:100%">
+                        <img src="Ressources-Supplementaires/Gros_logo.png" style="width:476px; height:400px;">
                         <div class="text">patate</div>
                     </div>
 
                     <div class="mySlides fade">
                         <div class="numbertext">2 / 3</div>
-                        <img src="Ressources-Supplementaires/img1.jpg" style="width:100%">
+                        <img src="Ressources-Supplementaires/img1.jpg" style="width:476px; height:400px;">
                         <div class="text">Caption Two</div>
                     </div>
 
                     <div class="mySlides fade">
                         <div class="numbertext">3 / 3</div>
-                        <img src="Ressources-Supplementaires/img1.jpg" style="width:100%">
+                        <img src="Ressources-Supplementaires/img1.jpg" style="width:476px; height:400px;">
                         <div class="text">Caption Three</div>
                     </div>
 
@@ -96,11 +100,6 @@
                     <span class="dot" onclick="currentSlide(3)"></span>
                 </div>
             </div>
-		</div>
-		
-		<div>
-			droits légaux de blablabli, blablabla
-		</div>
 		
     </body>
 </html>
