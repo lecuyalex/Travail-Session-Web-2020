@@ -19,19 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24fc7a72-32d7-4782-8c29-c47c0c89c41c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bd.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/logo_white.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Travail-Session-Web-2020.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Travail-Session-Web-2020.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="24fc7a72-32d7-4782-8c29-c47c0c89c41c" name="Default Changelist" comment="avancement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/login_signin.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/login_signin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/signin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/logo_transparent.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/login.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,8 +85,17 @@
       <workItem from="1605206401875" duration="1482000" />
       <workItem from="1605494456629" duration="14584000" />
       <workItem from="1605565130720" duration="141000" />
-      <workItem from="1605725236993" duration="3086000" />
+      <workItem from="1605725236993" duration="3356000" />
+      <workItem from="1605822383013" duration="2650000" />
     </task>
+    <task id="LOCAL-00001" summary="avancement">
+      <created>1605816860141</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605816860141</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +117,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
+    <MESSAGE value="avancement" />
+    <option name="LAST_COMMIT_MESSAGE" value="avancement" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2460" y="175" key="#CLI_Interpreters" timestamp="1605207144568">
