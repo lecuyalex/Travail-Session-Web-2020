@@ -18,7 +18,6 @@ input {
 }
 
 
-
 .content {
     width: 100%;
     height: 100%;
@@ -55,7 +54,7 @@ form {
     color: #838080;
 }
 
-.forgotPassword, .change{
+.forgotPassword, .change {
 
     font-weight: 450;
     font-size: 15px;
@@ -70,7 +69,8 @@ form {
     text-decoration: none;
 
 }
-.bottom_link{
+
+.bottom_link {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -78,6 +78,7 @@ form {
     align-items: center;
 
 }
+
 .forgot:hover {
 
     color: #55925f;
@@ -137,7 +138,6 @@ form {
 }
 
 
-
 .btn {
     margin-top: 20px;
     width: 150px;
@@ -157,4 +157,8 @@ form {
 .btn:hover {
     background-color: #3d6044;
 
+}
+
+.errorLabel {
+    color: indianred;
 }

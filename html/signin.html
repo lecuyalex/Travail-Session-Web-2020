@@ -4,47 +4,62 @@
     <meta charset="UTF-8"/>
     <script src="https://kit.fontawesome.com/86aa9796b2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/login_signin.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/login.js"></script>
     <title>Connexion</title>
-    <link rel="icon" href="../img/handshake-solid.svg" style="color: white">
+    <link rel="icon" type="image/png" href="../img/logo_white.png" style="color: white">
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
 </head>
 <body>
+
 <div class="content">
 
     <div class="signin-signup">
-        <form action="#" class="sign-in-form">
+        <form name="sign-in-form" class="sign-in-form" method="post">
 
             <h2 class="title">Inscris toi!</h2>
-
+            <label class="errorLabel" id="errorLabel"></label>
             <label class="typeInsert" for="name">Prenom</label>
             <div class="input-field">
-                <input type="text" id="name" name="name"/>
+                <input type="text" id="name" name="name" required/>
                 <i class="fas fa-signature"></i>
             </div>
+            <label class="errorLabel" id="errorName"></label>
+
             <label class="typeInsert" for="lastname">Nom de famille</label>
             <div class="input-field">
-                <input type="text" id="lastname" name="lastname"/>
+                <input type="text" id="lastname" name="lastname" required/>
                 <i class="fas fa-signature"></i>
             </div>
+            <label class="errorLabel" id="errorLastName"></label>
+
             <label class="typeInsert" for="email">Courriel</label>
             <div class="input-field">
-                <input type="email" id="email" name="email"/>
+                <input type="email" id="email" name="email" required/>
                 <i class="fas fa-envelope"></i>
             </div>
-            <label class="typeInsert" for="email">Mot de passe</label>
+            <label class="errorLabel" id="errorEmail"></label>
+
+            <label class="typeInsert" for="pwd">Mot de passe</label>
             <div class="input-field">
-                <input type="password" id="pwd" name="pwd"/>
+                <input type="password" id="pwd" name="pwd" required/>
                 <i class="fas fa-lock"></i>
             </div>
-            <label class="typeInsert" for="email">Verifier Mot de passe</label>
+            <label class="errorLabel" id="errorPwd"></label>
+
+            <label class="typeInsert" for="verif_pwd">Verifier Mot de passe</label>
             <div class="input-field">
-                <input type="password" id="verif_pwd" name="verif_pwd"/>
+                <input type="password" id="verif_pwd" name="verif_pwd" required/>
                 <i class="fas fa-lock"></i>
             </div>
+            <label class="errorLabel" id="errorVerif"></label>
+
             <div class="bottom_link">
                 <div class="change">
                     <a href="login.html" class="forgot">Déjà un compte?</a>
                 </div>
-                <input type="submit" value="Login" class="btn solid"/>
+                <input type="submit" value="S'inscrire" class="btn solid" id="bt_ajouter"/>
             </div>
         </form>
     </div>
