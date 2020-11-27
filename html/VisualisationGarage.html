@@ -5,42 +5,35 @@
     <meta charset="UTF-8">
     <title>Visualisation garage</title>
     <link rel="stylesheet" href="../css/Style-Accueil.css">
+	<link href = "../css/divider.css" rel = "stylesheet">
+	<script crossorigin = "anonymous" src = "https://kit.fontawesome.com/86aa9796b2.js"></script>
 </head>
 
     <!--Body du site-->
     <body style="background-color:#f8f9f9">
 
         <!--Partie principale du site-->
-		<div style="background-color:#84a4d9; width:100%; height:10%; background-color:white; box-shadow: 3px 3px 5px 6px #ccc; ">
-            <div style="width:70%; margin-left:15%; height:10%; padding:30px; display:flex; justify-content:flex-end;">
+		<header>
 
-				<div style="display:flex; justify-content:flex-start;height:100px; width:50%;">
-					<div style="width:25%;">
-						<img src="Ressources-Supplementaires/logo.png" style="border:1px solid black; height:100%">
-					</div>
+			<div class = "logo_container">
+				<img src = "Ressources-Supplementaires/logo.png">
+			</div>
+			<div class = "searchbar">
+				<input class = "search_text" name = "search_text" placeholder = "Recherche..." type = "text"/>
+				<button class = "btSearch"><i class = "fas fa-search"></i></button>
+			</div>
+			<div class = "header-user">
 
-					<div style="width:30%;">
-						<input type="text" name="recherche" id="recherche" style="color:#808080; width:100%; height:30%; margin-top:15%;">
-					</div>
-					
-					<div style="width:40%;">
-						<input type="submit" name="confirmer" id="confirmer" value="Rechercher" style="width:80%; height:70%; margin-top:5%; margin-left:15%;">
-					</div>
-				</div>
-					
-				<div style="width:50%; display:flex; justify-content:space-around;">
-						<div style="width:10%;">
-							<h2 style="margin-top:60%;">EN</h2>
-						</div>
-						
-						<div style="text-align:center; font-size:25px; display:flex; justify-content:center; width:80%;">
-							<a style="margin-top:7%;" href="www.google.com">Voir mon compte</a>
-							<a style="margin-top:7%; margin-left:7%;" href="www.google.com">Créer une annonce</a>
-						</div>
-				</div>
-            </div>
-		</div>
-		
+				<a class = "login" href = "login.html">Se connecter</a>
+				<a class = "user-btn" href = "signin.html">Créer un compte</a>
+
+			</div>
+			</div>
+
+
+		</header>
+
+
 		<div style="width:50%; margin-top:5%; box-shadow: 3px 3px 5px 6px #ccc; border-radius:10px; margin-left:25%; padding:2%;">
 			<div style="display:flex; justify-content:space-around">
 				

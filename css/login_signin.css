@@ -81,7 +81,7 @@ form {
 
 .forgot:hover {
 
-    color: #55925f;
+    color: #84a4d9;
     transition: .3s;
 }
 
@@ -141,7 +141,7 @@ form {
 .btn {
     margin-top: 20px;
     width: 150px;
-    background-color: #55925f;
+    background-color: #84a4d9;
     border: none;
     outline: none;
     height: 49px;
@@ -155,7 +155,7 @@ form {
 }
 
 .btn:hover {
-    background-color: #3d6044;
+    background-color: #4e70a2;
 
 }
 
