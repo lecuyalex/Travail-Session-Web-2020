@@ -32,11 +32,11 @@ $(document).ready(function () {
                             //Retourne a la page principale
                         },
                         error: function (message, e) {
-                            console.log(e.message)
+                            console.log(message)
                         }
+
                     });
-                    console.log("Utilisateur ajouter")
-                    // }
+
                 }
 
             },
@@ -58,15 +58,19 @@ $(document).ready(function () {
                 "password": $("#login_pwd").val(),
             },
             success: function (reponse) {
-                alert(JSON.stringify(reponse))
+                if (reponse === false) {
+                    alert("Erreur dans le courriel et le mot de passe");
+                } else
+                window.location.href = "accueil.html?user=" + reponse.Courriel;
+
             },
             error: function (message, e) {
-//erreur dans le courriel ou dans le mot de passe
+                alert("Erreur dans le courriel et le mot de passe");
             }
         });
     })
 
-    $("#forgotPassword").click(function (){
+    $("#forgotPassword").click(function () {
 
     });
 
@@ -119,4 +123,5 @@ function verifSignin(email) {
 
 
 }
+
 

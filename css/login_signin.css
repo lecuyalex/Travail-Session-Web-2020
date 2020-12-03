@@ -115,7 +115,7 @@ form {
     color: #838080;
 }
 
-.input-field input {
+.input-field input{
     color: #838080;
     width: 75%;
     margin-left: 15px;
@@ -125,6 +125,7 @@ form {
     line-height: 1;
     font-weight: 600;
     font-size: 1.1rem;
+
 }
 
 .input-field:focus-within {
@@ -151,6 +152,7 @@ form {
     font-weight: 600;
     cursor: pointer;
     transition: 0.5s;
+
 
 }
 

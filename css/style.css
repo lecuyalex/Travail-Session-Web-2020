@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+.parametre_btn {
+    font-size: 15px;
+    border-radius: 5px;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+    background-color: #84a4d9;
+    transition: 0.5s;
+    margin: 3px 3px;
+
+}
+
+.parametre_btn:hover {
+    font-size: 20px;
+    padding: 10px;
+    text-decoration: none;
+    background-color: #4e70a2;
+
+}
+
+.list_parametre {
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.div_param {
+    width: 75%;
+    border-radius: 5px;
+    top: 10%;
+  margin: 10% auto;
+    border: 1px solid black;
+
+}

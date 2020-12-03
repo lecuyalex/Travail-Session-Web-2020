@@ -5,6 +5,7 @@ try {
 } catch (PDOException $e) {
     echo json_encode("erreur" . $e->getMessage());
 }
+
 if ($_POST["requete"] == "insertUser") {
 
     try {
@@ -14,16 +15,19 @@ if ($_POST["requete"] == "insertUser") {
         $stmt->bindParam(':courriel', $_POST['courriel']);
         $stmt->bindParam(':mdp', $_POST['mdp']);
         $stmt->execute();
-
     } catch (PDOException $e) {
         echo json_encode($e);
     }
 } elseif ($_POST["requete"] == "login") {
     try {
-        $stmt = $connexion->prepare("SELECT * FROM USERS WHERE `Courriel` like :email");
+        $stmt = $connexion->prepare("SELECT * FROM USERS WHERE `Courriel` like :email and `Mdp` like :password");
         $stmt->bindParam(':email', $_POST['email']);
+        $stmt->bindParam(':password', $_POST['password']);
         $stmt->execute();
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $results = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (sizeof($results)==0 ){
+            echo json_encode(false);
+        }
         echo json_encode($results);
     } catch (PDOException $e) {
         echo json_encode($e);
@@ -39,6 +43,16 @@ if ($_POST["requete"] == "insertUser") {
         } else
             echo json_encode(true);
 
+    } catch (PDOException $e) {
+        echo json_encode($e);
+    }
+}elseif ($_POST["requete"] == "selectUser") {
+    try {
+        $stmt = $connexion->prepare("SELECT * FROM USERS WHERE `Courriel` like :email");
+        $stmt->bindParam(':email', $_POST['email']);
+        $stmt->execute();
+        $results = $stmt->fetch(PDO::FETCH_ASSOC);
+        echo json_encode($results);
     } catch (PDOException $e) {
         echo json_encode($e);
     }
