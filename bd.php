@@ -1,7 +1,8 @@
 <?php
 try {
-    $connexion = new PDO("mysql:host=localhost;dbname=hello_garage;port=3308", "root", "");
+    $connexion = new PDO("mysql:host=206.167.140.56;dbname=420505ri_gr09;port=3306", "1846551", "1846551");
     $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 } catch (PDOException $e) {
     echo json_encode("erreur" . $e->getMessage());
 }
