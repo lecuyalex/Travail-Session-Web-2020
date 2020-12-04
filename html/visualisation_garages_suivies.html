@@ -11,7 +11,32 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
     <link rel="icon" type="image/png" href="../img/logo_white.png" style="color: white">
     <script src="../js/accueil.js"></script>
-    <script src="../js/accueil.js"></script>
+    <script>
+        $(document).ready(function () {
+            let url = new URL(window.location.href);
+            let user = url.searchParams.get("user")
+            $.ajax({
+                url: "../bd.php",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    "requete": "getVenteSuivie",
+                    "email": user
+                },
+                success: function (reponse) {
+                    debugger;
+                    reponse.forEach(function (item) {
+                        ajout(item['titre'], item['date'],item['user_id'],item['vente_id'])
+                    })
+                },
+                error: function (message, e) {
+                    alert("Erreur dans le courriel et le mot de passe");
+                }
+            });
+        });
+
+
+    </script>
 </head>
 <!--Body du site-->
 <body style="background-color:#f8f9f9">
@@ -39,18 +64,20 @@
 
 <h1 style="text-align:center; margin-top:1%;">Les ventes de garage à laquelle je participe</h1>
 <div id="liste_suivi" class="liste_ventes">
-<button onclick="ajout()">test</button>
 </div>
 <script>
-    function ajout(){
-        let template = ' <div class="card" >\n' +
-            '        <img src="image.php"style="width:100%">\n' +
-            '        <div class="container">\n' +
-            '            <h4 class="Titre">Vente 1</h4>\n' +
-            '            <p class="date">12 novembre 2020</p>\n' +
-            '        </div>\n' +
-            '    </div>'
-        $('#liste_suivi').append(template);
+    function ajout(titre, date,user_id,vente_id) {
+        let template = " <div class=\"card\" >\n" +
+            "        <img src=\"image.php\"style=\"width:100%\">\n" +
+            "        <div class=\"container\">\n" +
+            "            <h4 class=\"Titre\">"+titre+"</h4>\n" +
+            "            <p class=\"date\">"+date+"</p>\n" +
+            "        <div class=\"div_bouton_vente\">\n" +
+            "             <a onclick='nePlusSuivre("+user_id+","+vente_id+")' class=\"bouton_vente\" href='#'>" + 'Ne plus suivre' + "</a>\n" +
+            "        </div>\n" +
+            "        </div>\n" +
+            "    </div>"
+        $("#liste_suivi").append(template);
     }
 </script>
 

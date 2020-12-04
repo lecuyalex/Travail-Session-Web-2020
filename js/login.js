@@ -28,10 +28,11 @@ $(document).ready(function () {
 
                         },
                         success: function (reponse) {
+                            console.log(JSON.stringify(reponse))
                             console.log("Utilisateur ajouter")
                             //Retourne a la page principale
                         },
-                        error: function (message, e) {
+                        error: function (message) {
                             console.log(message)
                         }
 
@@ -61,10 +62,11 @@ $(document).ready(function () {
                 if (reponse === false) {
                     alert("Erreur dans le courriel et le mot de passe");
                 } else
-                window.location.href = "accueil.html?user=" + reponse.Courriel;
+                window.location.href = "accueil.html?user=" + reponse['courriel'];
 
             },
-            error: function (message, e) {
+            error: function (reponse) {
+                console.log(JSON.stringify(reponse))
                 alert("Erreur dans le courriel et le mot de passe");
             }
         });
@@ -85,12 +87,7 @@ function errorMessage(id, input) {
 }
 
 function checkVide(id) {
-    if (document.forms["sign-in-form"][id].value === "") {
-        return true;
-    } else {
-        return false;
-
-    }
+    return document.forms["sign-in-form"][id].value === "";
 }
 
 function verifSignin(email) {

@@ -65,7 +65,7 @@ if ($_POST["requete"] == "insertUser") {
         $stmt->bindParam(':titre', $_POST['titre']);
         $stmt->bindParam(':date', $_POST['date']);
         $stmt->bindParam(':adresse', $_POST['adresse']);
-        $id = getUserId($_POST['email'],$connexion).Id;
+        $id = getUserId($_POST['email'], $connexion) . Id;
         $stmt->bindParam(':createur', $id);
         $stmt->execute();
     } catch (PDOException $e) {
@@ -86,7 +86,43 @@ if ($_POST["requete"] == "insertUser") {
     }
 
 
+} elseif ($_POST["requete"] == "getVenteSuivie") {
+    try {
+        $stmt = $connexion->prepare("select sv.user_id as user_id,sv.vente_id as vente_id, v.titre as titre,v.date as date from suivie_vente sv inner join ventes v on sv.vente_id = v.Id inner join users u on sv.user_id = u.Id where Courriel like :email");
+        $stmt->bindParam(':email', $_POST['email']);
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($results);
+    } catch
+    (PDOException $e) {
+        echo json_encode($e);
+    }
+
+
+} elseif ($_POST["requete"] == "NePasSuivre") {
+    try {
+        $stmt = $connexion->prepare("delete from suivie_vente where user_id = :user_id  and vente_id = :vente_id");
+        $stmt->bindParam(':user_id', $_POST['user_id']);
+        $stmt->bindParam(':vente_id', $_POST['vente_id']);
+        $stmt->execute();
+    } catch
+    (PDOException $e) {
+        echo json_encode($e);
+    }
+}elseif ($_POST["requete"] == "getVente") {
+    try {
+        $stmt = $connexion->prepare("select v.id as id,v.titre as titre,v.date as date from ventes v inner join users u on u.Id = v.Createur where Courriel like :email");
+        $stmt->bindParam(':email', $_POST['email']);
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($results);
+    } catch
+    (PDOException $e) {
+        echo json_encode($e);
+    }
 }
+
+
 
 function selectAdresse($no, $rue, $ville, $code, $connexion)
 {
@@ -96,11 +132,13 @@ function selectAdresse($no, $rue, $ville, $code, $connexion)
     return json_encode($results);
 }
 
-function getUserId($email,$connexion){
+function getUserId($email, $connexion)
+{
     $stmt = $connexion->prepare("SELECT * FROM USERS WHERE `Courriel` like :email");
     $stmt->bindParam(':email', $email);
     $stmt->execute();
     $results = $stmt->fetch(PDO::FETCH_ASSOC);
     return json_encode($results);
 }
+
 ?>

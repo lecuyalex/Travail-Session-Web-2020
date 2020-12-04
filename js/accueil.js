@@ -4,7 +4,9 @@ $(document).ready(function () {
     if (user) {
         $('#user-btn').text(user).attr("href", "Parametres.html?user=" + user)
         $('#login-btn').text("Se deconnecter")
-    }
+    } else
+        window.location.href = "login.html"
+
 
     $('.logo_container').click(function () {
         let url = new URL(window.location.href);
@@ -37,7 +39,7 @@ $(document).ready(function () {
                         "requete": "addVente",
                         "titre": $("#noRue").val(),
                         "date": $("#rue").val(),
-                        "ville": reponse.Id,
+                        "ville": reponse['id'],
 
                     },
                     success: function (reponse) {
@@ -56,5 +58,35 @@ $(document).ready(function () {
         });
 
     })
-})
+
+
+});
+
+function nePlusSuivre(user_id,vente_id){
+    let url = new URL(window.location.href);
+    let user = url.searchParams.get("user")
+    if (user) {
+        window.location.href = "accueil.html?user=" + user;
+    }
+        $.ajax({
+            url: "../bd.php",
+            type: "POST",
+            dataType: "json",
+            data: {
+                "requete": "NePasSuivre",
+                "user_id": vente_id,
+                "vente_id": vente_id
+
+            },
+            success: function (reponse) {
+                console.log(JSON.stringify(reponse))
+                    window.location.href = "accueil.html?user=" + user;
+            },
+            error: function (reponse) {
+                console.log(JSON.stringify(reponse))
+                alert("Erreur dans le courriel et le mot de passe");
+            }
+        });
+
+}
 
