@@ -25,11 +25,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24fc7a72-32d7-4782-8c29-c47c0c89c41c" name="Default Changelist" comment="navigation+connection fonctionnel">
-      <change beforePath="$PROJECT_DIR$/.idea/Travail-Session-Web-2020.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Travail-Session-Web-2020.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+    <list default="true" id="24fc7a72-32d7-4782-8c29-c47c0c89c41c" name="Default Changelist" comment="changement bd">
+      <change afterPath="$PROJECT_DIR$/html/image.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bd.php" beforeDir="false" afterPath="$PROJECT_DIR$/bd.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/creation_garage.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/creation_garage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/resultats_recherches.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/resultats_recherches.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/visualisation_garages_suivies.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/visualisation_garages_suivies.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/accueil.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/accueil.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,15 +77,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Travail-Session-Web-2020\img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Travail-Session-Web-2020\html" />
       <recent name="C:\wamp64\www\Travail-Session-Web-2020" />
       <recent name="C:\Users\alecu\Documents\gitProject\Travail-Session-Web-2020\js" />
       <recent name="C:\Users\alecu\Documents\gitProject\Travail-Session-Web-2020\html" />
       <recent name="C:\wamp64\www\php" />
-      <recent name="C:\Users\alecu\Documents\gitProject\Travail-Session-Web-2020\img" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\Travail-Session-Web-2020\img" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -104,7 +108,7 @@
       <workItem from="1606404176415" duration="15377000" />
       <workItem from="1606755592892" duration="17800000" />
       <workItem from="1606958220076" duration="628000" />
-      <workItem from="1606958912523" duration="2159000" />
+      <workItem from="1606958912523" duration="18596000" />
     </task>
     <task id="LOCAL-00001" summary="avancement">
       <created>1605816860141</created>
@@ -120,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606958664269</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="changement bd">
+      <created>1607026719775</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607026719776</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,7 +167,8 @@
     </ignored-roots>
     <MESSAGE value="avancement" />
     <MESSAGE value="navigation+connection fonctionnel" />
-    <option name="LAST_COMMIT_MESSAGE" value="navigation+connection fonctionnel" />
+    <MESSAGE value="changement bd" />
+    <option name="LAST_COMMIT_MESSAGE" value="changement bd" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2460" y="175" key="#CLI_Interpreters" timestamp="1605207144568">
@@ -184,25 +196,26 @@
     <state x="1220" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606760072534" />
     <state x="3140" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606756165746" />
     <state x="1220" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603995399765" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1606501535005">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2714" y="443" key="NewPhpFileDialog" timestamp="1607055157134">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604946369772" />
+    <state x="2714" y="443" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607055157134" />
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606501535005" />
     <state x="2381" y="165" key="SettingsEditor" timestamp="1605496243714">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2381" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605496243714" />
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603729260189" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606958734268">
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607026804238">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606958734268" />
-    <state x="0" y="73" width="1310" height="710" key="dock-window-1" timestamp="1606760217937">
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607026804238" />
+    <state x="-7" y="0" width="974" height="1047" key="dock-window-1" timestamp="1607062303482">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="0" y="73" width="1310" height="710" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606760217937" />
-    <state x="953" y="0" width="974" height="1047" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606759867945" />
+    <state x="-7" y="0" width="974" height="1047" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607062303482" />
     <state x="28" y="70" width="1559" height="1027" key="dock-window-2" timestamp="1606856864658">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
