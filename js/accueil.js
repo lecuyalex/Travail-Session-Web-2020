@@ -40,16 +40,18 @@ $(document).ready(function () {
                     dataType: "json",
                     data: {
                         "requete": "addVente",
-                        "titre": $("#noRue").val(),
+                        "titre": $("#titre").val(),
                         "date": $("#date").val(),
                         "adresse": reponse['Id'],
-                        "email": email
+                        "email": email,
+                        "categorie":$("#cat-dropdown").val()
                     },
-                    success: function (reponse) {
-
+                    success: function () {
+                        alert("Vente créer")
+                        window.location.href = "accueil.html?user=" + email;
                     },
-                    error: function (reponse) {
-                        alert(JSON.stringify(reponse))
+                    error: function () {
+                        alert("Erreur")
                     }
                 });
 

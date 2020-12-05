@@ -10,6 +10,29 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
     <link rel="icon" type="image/png" href="../img/logo_white.png" style="color: white">
     <script src="../js/accueil.js"></script>
+    <script>
+        // Populate dropdown with list of provinces
+        $.ajax({
+            url: "../bd.php",
+            type: "POST",
+            dataType: "json",
+            data: {
+                "requete": "getCategorie",
+            },
+            success: function (reponse) {
+                reponse.forEach(function (item) {
+                    let option = new Option(item['nom_categorie'], item['id']);   $('#cat-dropdown').append($(option));
+
+
+                });
+            },
+            error: function (reponse) {
+              console
+            }
+        });
+
+
+    </script>
 </head>
 
 <!--Body du site-->
@@ -83,6 +106,9 @@
                 <label for="codePostal">Code postal :</label> <br>
                 <input type="text" name="date" id="codePostal"> <br><br>
             </div>
+            <label for="cat-dropdown">Categorie :</label> <br>
+            <select id="cat-dropdown" name="categorie" style="width: auto"></select> <br><br>
+
             <input id="btn_add_garage" type="submit" name="confirmer" value="Confirmer"> <br><br>
         </div>
     </div>

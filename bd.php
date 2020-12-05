@@ -61,10 +61,11 @@ if ($_POST["requete"] == "insertUser") {
     }
 } elseif ($_POST["requete"] == "addVente") {
     try {
-        $stmt = $connexion->prepare("insert into ventes (Titre, Date, Courverture, Adresse, Createur) values (:titre,:date,1,:adresse,:createur)");
+        $stmt = $connexion->prepare("insert into ventes (Titre, Date, Courverture, Adresse, Createur,Categorie) values (:titre,:date,1,:adresse,:createur,:cat)");
         $stmt->bindParam(':titre', $_POST['titre']);
         $stmt->bindParam(':date', $_POST['date']);
         $stmt->bindParam(':adresse', $_POST['adresse']);
+        $stmt->bindParam(':cat', $_POST['categorie']);
         $id = getUserId($_POST['email'], $connexion)['Id'];
         $stmt->bindParam(':createur', $id)['Id'];
         $stmt->execute();
@@ -86,9 +87,9 @@ if ($_POST["requete"] == "insertUser") {
         $stmt->bindParam(':ville', $_POST['ville']);
         $stmt->bindParam(':code', $_POST['codePostal']);
         $stmt->execute();
-        $result= $stmt->fetch(PDO::FETCH_ASSOC);
-        echo  json_encode($result);
-   } catch (PDOException $e) {
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        echo json_encode($result);
+    } catch (PDOException $e) {
         echo json_encode($e);
     }
 
@@ -127,8 +128,17 @@ if ($_POST["requete"] == "insertUser") {
     (PDOException $e) {
         echo json_encode($e);
     }
+} elseif ($_POST["requete"] == "getCategorie") {
+    try {
+        $stmt = $connexion->prepare("select * from categorie");
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($results);
+    } catch
+    (PDOException $e) {
+        echo json_encode($e);
+    }
 }
-
 
 
 function getUserId($email, $connexion)
