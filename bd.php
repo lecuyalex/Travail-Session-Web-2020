@@ -65,8 +65,8 @@ if ($_POST["requete"] == "insertUser") {
         $stmt->bindParam(':titre', $_POST['titre']);
         $stmt->bindParam(':date', $_POST['date']);
         $stmt->bindParam(':adresse', $_POST['adresse']);
-        $id = getUserId($_POST['email'], $connexion) . Id;
-        $stmt->bindParam(':createur', $id);
+        $id = getUserId($_POST['email'], $connexion)['Id'];
+        $stmt->bindParam(':createur', $id)['Id'];
         $stmt->execute();
     } catch (PDOException $e) {
         echo json_encode($e);
@@ -74,14 +74,21 @@ if ($_POST["requete"] == "insertUser") {
 
 } elseif ($_POST["requete"] == "addAdresse") {
     try {
-        $stmt = $connexion->prepare("INSERT INTO `users`( `NoRue`, `Rue`, `Ville`, `CodePostal`) VALUES (:noRue,:rue,:ville,:code)");
+        $stmt = $connexion->prepare("INSERT INTO `adresse`( `NoRue`, `Rue`, `Ville`, `CodePostal`) VALUES (:noRue,:rue,:ville,:code)");
         $stmt->bindParam(':noRue', $_POST['noRue']);
         $stmt->bindParam(':rue', $_POST['rue']);
         $stmt->bindParam(':ville', $_POST['ville']);
-        $stmt->bindParam(':code', $_POST['code']);
+        $stmt->bindParam(':code', $_POST['codePostal']);
         $stmt->execute();
-        echo selectAdresse($_POST['noRue'], $_POST['rue'], $_POST['ville'], $_POST['code'], $connexion);
-    } catch (PDOException $e) {
+        $stmt = $connexion->prepare("select distinct * from adresse where CodePostal =:code and NoRue = :noRue and Ville = :ville and Rue = :rue ");
+        $stmt->bindParam(':noRue', $_POST['noRue']);
+        $stmt->bindParam(':rue', $_POST['rue']);
+        $stmt->bindParam(':ville', $_POST['ville']);
+        $stmt->bindParam(':code', $_POST['codePostal']);
+        $stmt->execute();
+        $result= $stmt->fetch(PDO::FETCH_ASSOC);
+        echo  json_encode($result);
+   } catch (PDOException $e) {
         echo json_encode($e);
     }
 
@@ -109,7 +116,7 @@ if ($_POST["requete"] == "insertUser") {
     (PDOException $e) {
         echo json_encode($e);
     }
-}elseif ($_POST["requete"] == "getVente") {
+} elseif ($_POST["requete"] == "getVente") {
     try {
         $stmt = $connexion->prepare("select v.id as id,v.titre as titre,v.date as date from ventes v inner join users u on u.Id = v.Createur where Courriel like :email");
         $stmt->bindParam(':email', $_POST['email']);
@@ -124,21 +131,13 @@ if ($_POST["requete"] == "insertUser") {
 
 
 
-function selectAdresse($no, $rue, $ville, $code, $connexion)
-{
-    $stmt = $connexion->prepare("select distinct * from adresse where CodePostal = $code and NoRue = $no and Ville = $ville and Rue = $rue ");
-    $stmt->execute();
-    $results = $stmt->fetch(PDO::FETCH_ASSOC);
-    return json_encode($results);
-}
-
 function getUserId($email, $connexion)
 {
-    $stmt = $connexion->prepare("SELECT * FROM USERS WHERE `Courriel` like :email");
+    $stmt = $connexion->prepare("SELECT Id FROM USERS WHERE `Courriel` like :email");
     $stmt->bindParam(':email', $email);
     $stmt->execute();
     $results = $stmt->fetch(PDO::FETCH_ASSOC);
-    return json_encode($results);
+    return $results;
 }
 
 ?>

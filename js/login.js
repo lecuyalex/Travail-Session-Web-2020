@@ -62,7 +62,8 @@ $(document).ready(function () {
                 if (reponse === false) {
                     alert("Erreur dans le courriel et le mot de passe");
                 } else
-                window.location.href = "accueil.html?user=" + reponse['courriel'];
+                    debugger;
+                window.location.href = "accueil.html?user=" + reponse['Courriel'];
 
             },
             error: function (reponse) {

@@ -28,9 +28,12 @@ $(document).ready(function () {
                 "noRue": $("#noRue").val(),
                 "rue": $("#rue").val(),
                 "ville": $("#ville").val(),
-                "codePostal": $("#codePostal").val()
+                "codePostal": $("#codePostal").val(),
             },
             success: function (reponse) {
+                console.log(reponse['Id'])
+                let url = new URL(window.location.href);
+                let email = url.searchParams.get("user")
                 $.ajax({
                     url: "../bd.php",
                     type: "POST",
@@ -38,12 +41,11 @@ $(document).ready(function () {
                     data: {
                         "requete": "addVente",
                         "titre": $("#noRue").val(),
-                        "date": $("#rue").val(),
-                        "ville": reponse['id'],
-
+                        "date": $("#date").val(),
+                        "adresse": reponse['Id'],
+                        "email": email
                     },
                     success: function (reponse) {
-                        alert(JSON.stringify(reponse))
 
                     },
                     error: function (reponse) {
@@ -62,31 +64,31 @@ $(document).ready(function () {
 
 });
 
-function nePlusSuivre(user_id,vente_id){
+function nePlusSuivre(user_id, vente_id) {
     let url = new URL(window.location.href);
     let user = url.searchParams.get("user")
     if (user) {
         window.location.href = "accueil.html?user=" + user;
     }
-        $.ajax({
-            url: "../bd.php",
-            type: "POST",
-            dataType: "json",
-            data: {
-                "requete": "NePasSuivre",
-                "user_id": vente_id,
-                "vente_id": vente_id
+    $.ajax({
+        url: "../bd.php",
+        type: "POST",
+        dataType: "json",
+        data: {
+            "requete": "NePasSuivre",
+            "user_id": vente_id,
+            "vente_id": vente_id
 
-            },
-            success: function (reponse) {
-                console.log(JSON.stringify(reponse))
-                    window.location.href = "accueil.html?user=" + user;
-            },
-            error: function (reponse) {
-                console.log(JSON.stringify(reponse))
-                alert("Erreur dans le courriel et le mot de passe");
-            }
-        });
+        },
+        success: function (reponse) {
+            console.log(JSON.stringify(reponse))
+            window.location.href = "accueil.html?user=" + user;
+        },
+        error: function (reponse) {
+            console.log(JSON.stringify(reponse))
+            alert("Erreur dans le courriel et le mot de passe");
+        }
+    });
 
 }
 
