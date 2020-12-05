@@ -6,8 +6,8 @@ $(document).ready(function () {
     if (user) {
         $('#user-btn').text(user).attr("href", "Parametres.html?user=" + user)
         $('#login-btn').text("Se deconnecter")
-    } else
-        window.location.href = "login.html"
+    }
+
 
 
     $('.logo_container').click(function () {

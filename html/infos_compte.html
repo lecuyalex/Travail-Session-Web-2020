@@ -3,11 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Résultats de la recherche</title>
+    <title>Information du compte</title>
     <link rel="stylesheet" href="../css/Style-Accueil.css">
+    <link rel="stylesheet" href="../css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../js/accueil.js"></script>
     <link rel="icon" type="image/png" href="../img/logo_white.png" style="color: white">
+    <script src="https://kit.fontawesome.com/86aa9796b2.js" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function () {
             let url = new URL(window.location.href);
@@ -22,15 +24,46 @@
                         "email": user
                     },
                     success: function (reponse) {
-                        $('#prenom').text(reponse.Prenom)
-                        $('#nom').text(reponse.Nom)
-                        $('#courriel').text(reponse.Courriel)
+                        console.log(reponse)
+                        $('#prenom').val(reponse['Prenom'])
+                        $('#nom').val(reponse['Nom'])
+                        $('#email').val(reponse['Courriel'])
+                        $('#phone').val(reponse['No_Telephone'])
                     },
                     error: function (message, e) {
-
+                        console.log(message)
                     }
                 });
-            }
+            } /* else
+              window.location.href = "login.html";*/
+
+
+            $('.form_info').on('submit', function (e) {
+                e.preventDefault()
+                $.ajax({
+                    url: "../bd.php",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        "requete": "changeInfo",
+                        "email": $("#email").val(),
+                        "prenom": $("#prenom").val(),
+                        "nom": $("#nom").val(),
+                        "phone": $("#phone").val()
+                    },
+                    success: function (reponse) {
+                    alert("Les informations ont été mis à jour")
+                    },
+                    error: function (message, e) {
+                        console.log(message)
+                    }
+                });
+            });
+
+            $('.form_password').on('submit', function (e) {
+                e.preventDefault()
+
+            })
         })
     </script>
 </head>
@@ -44,6 +77,7 @@
     <div class="logo_container">
         <img src="Ressources-Supplementaires/logo.png">
     </div>
+    <p>Compte > Information</p>
     <div class="searchbar">
         <input class="search_text" name="search_text" placeholder="Recherche..." type="text"/>
         <button class="btSearch"><i class="fas fa-search"></i></button>
@@ -58,23 +92,55 @@
 
 
 </header>
-<div style="text-align: center">
-    <h1 style="text-align:center; font-size:45px;">Informations</h1>
-    <div class="affichage">
-        <label>Prenom:</label>
-        <label id="prenom">:</label>
-    </div>
-    <div class="affichage">
-        <label>Nom :</label>
-        <label id="nom">:</label>
-    </div>
-    <div class="affichage">
-        <label>Courriel :</label>
-        <label id="courriel"></label>
+<div class="change_div">
+    <div class="change_info">
+        <form class="form_info" id="form_info">
+            <h2 class="title">Changer les information</h2>
+            <label class="typeInsert" for="email">Courriel</label>
+            <div class="input-field">
+                <input type="email" id="email" name="email"/>
+                <i class="fas fa-envelope"></i>
+            </div>
+            <label class="typeInsert" for="prenom">Prenom</label>
+            <div class="input-field">
+                <input type="text" id="prenom" name="prenom"/>
+                <i class="far fa-id-card"></i>
+            </div>
+            <label class="typeInsert" for="nom">Nom de famille</label>
+            <div class="input-field">
+                <input type="text" id="nom" name="nom"/>
+                <i class="far fa-id-card"></i>
+            </div>
+            <label class="typeInsert" for="phone">Telephone</label>
+            <div class="input-field">
+                <input type="text" id="phone" name="phone"/>
+                <i class="fas fa-phone"></i>
+            </div>
+            <input type="submit" value="Sauvegarder" class="btn solid" id="bt_change_info"/>
+        </form>
     </div>
 
-
-    <input type="submit" name="confirmer" value="Modifier">
+    <div class="change_password">
+        <form class="form_password">
+            <h2 class="title">Changer votre mot de passe</h2>
+            <label class="typeInsert" for="present_pwd">Mot de passe actuel</label>
+            <div class="input-field">
+                <input type="password" id="present_pwd" name="present_pwd"/>
+                <i class="fas fa-lock"></i>
+            </div>
+            <label class="typeInsert" for="new_pwd">Nouveau mot de passe</label>
+            <div class="input-field">
+                <input type="password" id="new_pwd" name="new_pwd"/>
+                <i class="fas fa-lock"></i>
+            </div>
+            <label class="typeInsert" for="new_verif">Confirmation du nouveau mot de passe</label>
+            <div class="input-field">
+                <input type="password" id="new_verif" name="new_verif"/>
+                <i class="fas fa-lock"></i>
+            </div>
+            <input type="submit" value="Changer" class="btn solid" id="bt_change_password"/>
+        </form>
+    </div>
 </div>
 
 </body>

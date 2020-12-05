@@ -21,11 +21,11 @@
                 $('#mes_suivies').attr("href", "visualisation_garages_suivies.html?user=" + user)
                 $('#nouvelle_vente').attr("href", "creation_garage.html?user=" + user)
 
-            }
+            } else
+                window.location.href = "login.html";
         })
     </script>
     <link rel="icon" type="image/png" href="../img/logo_white.png" style="color: white">
-
 
 
 </head>
@@ -39,6 +39,7 @@
     <div class="logo_container">
         <img src="Ressources-Supplementaires/logo.png">
     </div>
+    <p>Compte</p>
     <div class="searchbar">
         <input class="search_text" name="search_text" placeholder="Recherche..." type="text"/>
         <button class="btSearch"><i class="fas fa-search"></i></button>
@@ -56,12 +57,12 @@
 
 <div class="div_param">
     <h1 style="text-align:left; margin: 5%">Paramètres du compte</h1>
-            <div class="list_parametre">
-                <a id="profil" class="parametre_btn" href="login.html">Information du profil</a>
-                <a id="mes_suivies" class="parametre_btn" href="login.html">Mes ventes suivies</a>
-                <a id="mes_ventes" class="parametre_btn" href="login.html">Mes ventes de garages</a>
-                <a id="nouvelle_vente" class="parametre_btn" href="login.html">Créer un nouvelle vente de garagge</a>
-            </div>
+    <div class="list_parametre">
+        <a id="profil" class="parametre_btn" href="login.html">Information du profil</a>
+        <a id="mes_suivies" class="parametre_btn" href="login.html">Mes ventes suivies</a>
+        <a id="mes_ventes" class="parametre_btn" href="login.html">Mes ventes de garages</a>
+        <a id="nouvelle_vente" class="parametre_btn" href="login.html">Créer un nouvelle vente de garagge</a>
+    </div>
 
 </div>
 

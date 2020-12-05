@@ -55,10 +55,12 @@
     visibility: hidden;
 
 }
+
 .card:hover a {
     visibility: visible;
 }
-.bouton_vente{
+
+.bouton_vente {
     font-size: 15px;
     border-radius: 5px;
     color: white;
@@ -67,15 +69,15 @@
 
     padding: 3px;
 }
-.bouton_vente:hover{
+
+.bouton_vente:hover {
     text-decoration: none;
     background-color: #4e70a2;
 }
 
-.div_bouton_vente{
-margin: 5px 0;
+.div_bouton_vente {
+    margin: 5px 0;
 }
-
 
 
 /* On mouse-over, add a deeper shadow */
@@ -93,4 +95,105 @@ margin: 5px 0;
     display: grid;
     grid-template-columns: auto auto auto;
     padding: 10px;
+}
+.title {
+    font-size: 25px;
+    color: #838080;
+}
+.change_div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.change_info, .change_password {
+    margin-top: 5%;
+    padding: 20px;
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+    width: 500px;
+    height: auto;
+    border: 2px solid #bfbcbc;
+}
+
+
+.form_info, .form_password {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.typeInsert {
+    font-weight: 450;
+    font-size: 20px;
+    color: #838080;
+    margin-top: 20px;
+    max-width: 100%;
+    width: 100%;
+    text-align: left;
+}
+
+.input-field {
+    border: 1px solid #dedcdc;
+    max-width: 100%;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    transition: .5s;
+    padding: 0;
+}
+
+.input-field i {
+    margin-right: 15px;
+    text-align: center;
+    line-height: 55px;
+    opacity: 70%;
+    color: #838080;
+}
+
+.input-field input{
+    color: #838080;
+    width: 75%;
+    margin-left: 15px;
+    background: none;
+    outline: none;
+    border: none;
+    line-height: 1;
+    font-weight: 600;
+    font-size: 1.1rem;
+
+}
+
+.input-field:focus-within {
+    border: 2px solid #838080;
+    transition: .2s;
+}
+
+.input-field input::placeholder {
+    color: #838080;
+    font-weight: 500;
+}
+
+
+.btn {
+    margin-top: 20px;
+    width: 150px;
+    background-color: #84a4d9;
+    border: none;
+    outline: none;
+    height: 49px;
+    border-radius: 49px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.5s;
+
+
 }
