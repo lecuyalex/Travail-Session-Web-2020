@@ -36,7 +36,7 @@
                     }
                 });
             }else{
-                $('#recherche_header').attr("html","Resultat de recherche : "+recherche)
+                $('#recherche_header').text("Resultat de recherche : "+recherche)
                 $.ajax({
                     url: "../bd.php",
                     type: "POST",
