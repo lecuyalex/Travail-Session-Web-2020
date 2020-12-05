@@ -3,13 +3,63 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Hello Garage</title>
+    <title>recherche</title>
+    <link href="../css/style.css" rel="stylesheet">
     <link href="../css/Style-Accueil.css" rel="stylesheet">
     <link href="../css/divider.css" rel="stylesheet">
     <script crossorigin="anonymous" src="https://kit.fontawesome.com/86aa9796b2.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
     <link rel="icon" type="image/png" href="../img/logo_white.png" style="color: white">
     <script src="../js/accueil.js"></script>
+    <script>
+        $(document).ready(function () {
+            let url = new URL(window.location.href);
+            let cat = url.searchParams.get("cat")
+            let recherche = url.searchParams.get("recherche")
+            if (cat){
+                $.ajax({
+                    url: "../bd.php",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        "requete": "getVenteCat",
+                        "cat": cat
+                    },
+                    success: function (reponse) {
+                        debugger;
+                        reponse.forEach(function (item) {
+                            ajout(item['id'],item['titre'], item['date'])
+                        })
+                    },
+                    error: function (message, e) {
+
+                    }
+                });
+            }else{
+                $('#recherche_header').attr("html","Resultat de recherche : "+recherche)
+                $.ajax({
+                    url: "../bd.php",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        "requete": "getVenteRecherche",
+                        "recherche": recherche
+                    },
+                    success: function (reponse) {
+                        debugger;
+                        reponse.forEach(function (item) {
+                            ajout(item['id'],item['titre'], item['date'])
+                        })
+                    },
+                    error: function (message, e) {
+
+                    }
+                });
+            }
+
+
+        });
+    </script>
 </head>
 
 <!--Body du site-->
@@ -23,7 +73,7 @@
     </div>
     <div class="searchbar">
         <input class="search_text" name="search_text" placeholder="Recherche..." type="text"/>
-        <button class="btSearch"><i class="fas fa-search"></i></button>
+        <button class="btSearch" onclick="chan"><i class="fas fa-search"></i></button>
     </div>
     <div class="header-user">
 
@@ -36,11 +86,25 @@
 
 </header>
 
-<a href="www.google.com" style="text-decoration:none;">
-    <div style="width:30%; margin-top:5%; box-shadow: 3px 3px 5px 6px #ccc; border-radius:10px; margin-left:35%; padding:2%;">
-        <img src="Ressources-Supplementaires/vente-de-garage.jpg" style="width:100%; height:100%;">
-        <h1 style="text-align:center;">TITRE</h1>
-    </div>
-</a>
+<h1 id="recherche_header" style="text-align:center;"> Recherche</h1>
+
+<div id="liste_suivi" class="liste_ventes">
+</div>
+<script>
+    function ajout(id,titre, date) {
+        let template =
+            " <div class=\"card\" >\n" +
+            "        <img src=\"image.php\"style=\"width:100%\">\n" +
+            "        <div class=\"container\">\n" +
+            "            <h4 class=\"Titre\">" + titre + "</h4>\n" +
+            "            <p class=\"date\">" + date + "</p>\n" +
+            "        <div class=\"div_bouton_vente\">\n" +
+            "             <a class=\"bouton_vente\" href='#'>" + 'Suivre' + "</a>\n" +
+            "        </div>\n" +
+            "        </div>\n" +
+            "    </div>"
+        $("#liste_suivi").append(template);
+    }
+</script>
 
 </body>

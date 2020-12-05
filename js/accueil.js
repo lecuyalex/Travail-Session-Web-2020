@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+    $(".btSearch").attr("onclick","changeRecherche($('.search_text').val())")
     let url = new URL(window.location.href);
     let user = url.searchParams.get("user")
     if (user) {
@@ -44,7 +46,7 @@ $(document).ready(function () {
                         "date": $("#date").val(),
                         "adresse": reponse['Id'],
                         "email": email,
-                        "categorie":$("#cat-dropdown").val()
+                        "categorie": $("#cat-dropdown").val()
                     },
                     success: function () {
                         alert("Vente créer")
@@ -65,6 +67,19 @@ $(document).ready(function () {
 
 
 });
+
+function changeCategorie(id) {
+    let url = new URL(window.location.href);
+    let user = url.searchParams.get("user")
+    window.location.href = "resultats_recherches.html?user=" + user + "&cat=" + id;
+}
+
+function changeRecherche(recherche) {
+    let url = new URL(window.location.href);
+    let user = url.searchParams.get("user")
+    window.location.href = "resultats_recherches.html?user=" + user + "&recherche=" + recherche;
+
+}
 
 function nePlusSuivre(user_id, vente_id) {
     let url = new URL(window.location.href);

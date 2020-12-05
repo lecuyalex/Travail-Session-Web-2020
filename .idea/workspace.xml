@@ -25,13 +25,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24fc7a72-32d7-4782-8c29-c47c0c89c41c" name="Default Changelist" comment="ajout fonctionnel sans validation">
-      <change afterPath="$PROJECT_DIR$/upload.php" afterDir="false" />
+    <list default="true" id="24fc7a72-32d7-4782-8c29-c47c0c89c41c" name="Default Changelist" comment="selection de categorie pour ajout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bd.php" beforeDir="false" afterPath="$PROJECT_DIR$/bd.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/creation_garage.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/creation_garage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/accueil.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/accueil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/resultats_recherches.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/resultats_recherches.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/accueil.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/accueil.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +112,7 @@
       <workItem from="1606958220076" duration="628000" />
       <workItem from="1606958912523" duration="18764000" />
       <workItem from="1607093519520" duration="10381000" />
-      <workItem from="1607138405096" duration="7116000" />
+      <workItem from="1607138405096" duration="10136000" />
     </task>
     <task id="LOCAL-00001" summary="avancement">
       <created>1605816860141</created>
@@ -150,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607142733227</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="selection de categorie pour ajout">
+      <created>1607145598682</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1607145598682</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +196,8 @@
     <MESSAGE value="affichage des ventes et ajout presque fini" />
     <MESSAGE value="affichage des ventes et des suivie" />
     <MESSAGE value="ajout fonctionnel sans validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout fonctionnel sans validation" />
+    <MESSAGE value="selection de categorie pour ajout" />
+    <option name="LAST_COMMIT_MESSAGE" value="selection de categorie pour ajout" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2460" y="175" key="#CLI_Interpreters" timestamp="1605207144568">
@@ -212,10 +219,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603743775841" />
-    <state x="1220" y="278" key="FileChooserDialogImpl" timestamp="1606760072534">
+    <state x="1220" y="278" key="FileChooserDialogImpl" timestamp="1607147467541">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1220" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606760072534" />
+    <state x="1220" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607147467541" />
     <state x="3140" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606756165746" />
     <state x="1220" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603995399765" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1607142898883">
@@ -229,18 +236,20 @@
     </state>
     <state x="2381" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605496243714" />
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603729260189" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607064651302">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607145600616">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607145600616" />
     <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607064651302" />
     <state x="1986" y="220" width="1893" height="1027" key="dock-window-1" timestamp="1607143551441">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="1229" y="0" width="698" height="1047" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607141196940" />
     <state x="1986" y="220" width="1893" height="1027" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607143551441" />
-    <state x="28" y="70" width="1559" height="1027" key="dock-window-2" timestamp="1606856864658">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1920" y="0" width="1575" height="1027" key="dock-window-2" timestamp="1607147907710">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="1920" y="0" width="1575" height="1027" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607147907710" />
     <state x="28" y="70" width="1559" height="1027" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606856864658" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1607144697947">
       <screen x="0" y="0" width="1920" height="1040" />

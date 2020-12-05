@@ -128,6 +128,28 @@ if ($_POST["requete"] == "insertUser") {
     (PDOException $e) {
         echo json_encode($e);
     }
+} elseif ($_POST["requete"] == "getVenteCat") {
+    try {
+        $stmt = $connexion->prepare("select v.id as id,v.titre as titre,v.date as date from ventes v inner join users u on u.Id = v.Createur where categorie like :cat");
+        $stmt->bindParam(':cat', $_POST['cat']);
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($results);
+    } catch
+    (PDOException $e) {
+        echo json_encode($e);
+    }
+} elseif ($_POST["requete"] == "getVenteRecherche") {
+    try {
+        $stmt = $connexion->prepare("select v.id as id,v.titre as titre,v.date as date from ventes v inner join users u on u.Id = v.Createur where v.titre like :recherche or v.Date like :recherche or u.Courriel like :recherche or u.nom like :recherche  ");
+        $stmt->bindValue(':recherche', '%'.$_POST['recherche'].'%');
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($results);
+    } catch
+    (PDOException $e) {
+        echo json_encode($e);
+    }
 } elseif ($_POST["requete"] == "getCategorie") {
     try {
         $stmt = $connexion->prepare("select * from categorie");

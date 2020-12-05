@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Hello Garage</title>
+    <link href="../css/style.css" rel="stylesheet">
     <link href="../css/Style-Accueil.css" rel="stylesheet">
     <link href="../css/divider.css" rel="stylesheet">
     <script crossorigin="anonymous" src="https://kit.fontawesome.com/86aa9796b2.js"></script>
@@ -11,7 +12,6 @@
     <link rel="icon" type="image/png" href="../img/logo_white.png" style="color: white">
     <script src="../js/accueil.js"></script>
 </head>
-
 
 <!--Body du site-->
 <body style="background-color:#f8f9f9">
@@ -24,7 +24,8 @@
     </div>
     <div class="searchbar">
         <input class="search_text" name="search_text" placeholder="Recherche..." type="text"/>
-        <button class="btSearch"><i class="fas fa-search"></i></button>
+        <button class="btSearch" onclick="changeRecherche($('.search_text').val())"><i class="fas fa-search"></i>
+        </button>
     </div>
     <div class="header-user">
 
@@ -39,22 +40,22 @@
 
 
 <div class="container-categorie">
-    <a class="categorie" href="#">
+    <a class="categorie" onclick="changeCategorie(1)" href="#">
         Jardinage
     </a>
-    <a class="categorie" href="#" >
+    <a class="categorie" onclick="changeCategorie(2)" href="#">
         Électroménager
     </a>
-    <a class="categorie" href="#" >
+    <a class="categorie" onclick="changeCategorie(3)" href="#">
         Électronique
     </a>
-    <a class="categorie" href="#">
+    <a class="categorie" onclick="changeCategorie(4)" href="#">
         Mécanique
     </a>
-    <a class="categorie" href="#" >
+    <a class="categorie" onclick="changeCategorie(5)" href="#">
         Objets d'intérieurs
     </a>
-    <a class="categorie" href="#">
+    <a class="categorie" href="#" onclick="changeCategorie(6)" href="#">
         Objets
         d'extérieurs
     </a>
