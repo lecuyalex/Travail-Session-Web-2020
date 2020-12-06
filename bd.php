@@ -107,18 +107,7 @@ if ($_POST["requete"] == "insertUser") {
     }
 
 
-} elseif ($_POST["requete"] == "NePasSuivre") {
-    try {
-        $stmt = $connexion->prepare("delete from suivie_vente where user_id = :user_id  and vente_id = :vente_id");
-        $stmt->bindParam(':user_id', $_POST['user_id']);
-        $stmt->bindParam(':vente_id', $_POST['vente_id']);
-
-        $stmt->execute();
-    } catch
-    (PDOException $e) {
-        echo json_encode($e);
-    }
-} elseif ($_POST["requete"] == "getVente") {
+}  elseif ($_POST["requete"] == "getVente") {
     try {
         $stmt = $connexion->prepare("select v.id as id,v.titre as titre,v.date as date from ventes v inner join users u on u.Id = v.Createur where Courriel like :email");
         $stmt->bindParam(':email', $_POST['email']);
@@ -204,6 +193,17 @@ if ($_POST["requete"] == "insertUser") {
     (PDOException $e) {
         echo json_encode($e);
     }
+}elseif ($_POST["requete"] == "NePasSuivre") {
+    try {
+        $stmt = $connexion->prepare("delete from suivie_vente where user_id = :user_id  and vente_id = :vente_id");
+        $id = getUserId($_POST['user'], $connexion)['Id'];
+        $stmt->bindParam(':user_id', $id);
+        $stmt->bindParam(':vente_id', $_POST['vente_id']);
+        $stmt->execute();
+    } catch
+    (PDOException $e) {
+        echo json_encode($e);
+    }
 } elseif ($_POST["requete"] == "Suivre") {
     try {
         $stmt = $connexion->prepare("insert into suivie_vente VALUES (:user_id,:vente_id)");
@@ -230,6 +230,17 @@ if ($_POST["requete"] == "insertUser") {
         } else {
             echo json_encode(true);
         }
+    } catch
+    (PDOException $e) {
+        echo json_encode($e);
+    }
+}elseif ($_POST["requete"] == "affichageVente") {
+    try {
+        $stmt = $connexion->prepare("select v.titre,v.date, concat(a.NoRue,' ',a.rue,' ',a.Ville,' ',a.CodePostal)as adresse, concat(u.Prenom,' ',u.nom)as createur from ventes v inner join adresse a on v.Adresse=a.Id inner join users u on v.Createur=u.id where v.id = :vente_id;");
+        $stmt->bindParam(':vente_id', $_POST['vente_id']);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+     echo json_encode($result);
     } catch
     (PDOException $e) {
         echo json_encode($e);

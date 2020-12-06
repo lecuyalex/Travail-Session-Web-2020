@@ -121,26 +121,26 @@
 
         if (suivie) {
             let template =
-                " <div class=\"card\" >\n" +
+                " <div class=\"card\"onclick='afficherSuivie(" + id + ")'>\n" +
                 "        <img src=\"image.php\"style=\"width:100%\">\n" +
                 "        <div class=\"container\">\n" +
                 "            <h4 class=\"Titre\">" + titre + "</h4>\n" +
                 "            <p class=\"date\">" + date + "</p>\n" +
                 "        <div class=\"div_bouton_vente\">\n" +
-                "             <a class=\"bouton_vente\" onclick='nePlusSuivre("+id+")' href='#'>" + 'Ne plus suivre' + "</a>\n" +
+                "             <a class=\"bouton_vente\" onclick='nePlusSuivre(" + id + ")' href='#'>" + 'Ne plus suivre' + "</a>\n" +
                 "        </div>\n" +
                 "        </div>\n" +
                 "    </div>"
             $("#liste_suivi").append(template);
         } else {
             let template =
-                " <div class=\"card\" >\n" +
+                " <div class=\"card\"onclick='afficherSuivie(" + id + ")'>\n" +
                 "        <img src=\"image.php\"style=\"width:100%\">\n" +
                 "        <div class=\"container\">\n" +
                 "            <h4 class=\"Titre\">" + titre + "</h4>\n" +
                 "            <p class=\"date\">" + date + "</p>\n" +
                 "        <div class=\"div_bouton_vente\">\n" +
-                "             <a class=\"bouton_vente\" onclick='suivreVente("+id+")' href='#'>" + 'Suivre' + "</a>\n" +
+                "             <a class=\"bouton_vente\" onclick='suivreVente(" + id + ")' href='#'>" + 'Suivre' + "</a>\n" +
                 "        </div>\n" +
                 "        </div>\n" +
                 "    </div>"

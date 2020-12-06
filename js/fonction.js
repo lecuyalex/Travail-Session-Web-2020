@@ -80,27 +80,6 @@ function changeRecherche(recherche) {
 
 }
 
-function nePlusSuivre(user_id, vente_id) {
-    $.ajax({
-        url: "../bd.php",
-        type: "POST",
-        dataType: "json",
-        data: {
-            "requete": "NePasSuivre",
-            "user": user_id,
-            "vente_id": vente_id
-
-        },
-        success: function (reponse) {
-            console.log(JSON.stringify(reponse))
-            $(document).refresh(true)
-        },
-        error: function (reponse) {
-            console.log(JSON.stringify(reponse))
-
-        }
-    });
-}
 
 function ValidateName(text) {
     let regex = /^[a-z]+$/i
@@ -165,6 +144,33 @@ function checkPwd(ancien, nouveau, verif, present) {
     return true;
 }
 
+function nePlusSuivre(user_id, vente_id) {
+    let url = new URL(window.location.href);
+    let user = url.searchParams.get("user")
+    if (user) {
+        $.ajax({
+            url: "../bd.php",
+            type: "POST",
+            dataType: "json",
+            data: {
+                "requete": "NePasSuivre",
+                "user": user,
+                "vente_id": vente_id
+
+            },
+            success: function (reponse) {
+                console.log(JSON.stringify(reponse))
+                window.location.href = "resultats_recherches.html?user=" + user
+            },
+            error: function (reponse) {
+                console.log(JSON.stringify(reponse))
+
+            }
+        });
+    }
+
+}
+
 function suivreVente(id) {
 
     let url = new URL(window.location.href);
@@ -180,7 +186,7 @@ function suivreVente(id) {
                 "vente_id": id
             },
             success: function (reponse) {
-
+                window.location.href = "resultats_recherches.html?user=" + user
             },
             error: function (reponse) {
             }
@@ -188,6 +194,11 @@ function suivreVente(id) {
     } else {
         window.location.href = "login.html";
     }
+}
 
+function afficherSuivie(id) {
+    let url = new URL(window.location.href);
+    let user = url.searchParams.get("user")
+  window.location.href = "visualisatoinSuivies.html?user=" + user+"&id="+id
 
 }

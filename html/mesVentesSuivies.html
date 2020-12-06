@@ -24,7 +24,6 @@
                     "email": user
                 },
                 success: function (reponse) {
-                    debugger;
                     reponse.forEach(function (item) {
                         ajout(item['titre'], item['date'],item['user_id'],item['vente_id'])
                     })
