@@ -26,8 +26,33 @@
                         "cat": cat
                     },
                     success: function (reponse) {
+                        let url = new URL(window.location.href);
+                        let user = url.searchParams.get("user")
                         reponse.forEach(function (item) {
-                            ajout(item['id'], item['titre'], item['date'],item)
+                            if (user) {
+                                $.ajax({
+                                    url: "../bd.php",
+                                    type: "POST",
+                                    dataType: "json",
+                                    data: {
+                                        "requete": "verifSuivie",
+                                        "user": user,
+                                        "vente_id": item['id']
+                                    },
+                                    success: function (rep) {
+
+                                        console.log(item['Path'])
+                                        ajout(item['id'], item['titre'],item['date'],item['Path'], rep)
+                                    }
+                                    ,
+                                    error: function (rep) {
+                                    }
+                                });
+                            } else {
+                                ajout(item['id'], item['titre'], item['date'], item['photo'], false)
+                            }
+
+
                         })
                     },
                     error: function (message, e) {

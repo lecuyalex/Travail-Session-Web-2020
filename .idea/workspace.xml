@@ -26,18 +26,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24fc7a72-32d7-4782-8c29-c47c0c89c41c" name="Default Changelist" comment="Redirection et image fonctionnel manque seulement suppressio et modif et l'acceuil">
-      <change afterPath="$PROJECT_DIR$/html/modification.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bd.php" beforeDir="false" afterPath="$PROJECT_DIR$/bd.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/Style-Accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/Style-Accueil.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/Parametres.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/Parametres.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/VisualisationGarage.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/VisualisationGarage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/mesVentesSuivies.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/mesVentesSuivies.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/resultats_recherches.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/resultats_recherches.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/visualisationSuivies.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/visualisationSuivies.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/fonction.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/fonction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/upload.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +116,7 @@
       <workItem from="1607220331713" duration="1430000" />
       <workItem from="1607221913857" duration="781000" />
       <workItem from="1607222722778" duration="14851000" />
+      <workItem from="1607237763777" duration="490000" />
     </task>
     <task id="LOCAL-00001" summary="avancement">
       <created>1605816860141</created>
@@ -196,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607222698728</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Redirectrion et image fonctionnel manque suelement suppression et modification">
+      <created>1607237809540</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1607237809540</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,7 +240,8 @@
     <MESSAGE value="Modification info fonctionnel" />
     <MESSAGE value="redirection vente" />
     <MESSAGE value="Redirection et image fonctionnel manque seulement suppressio et modif et l'acceuil" />
-    <option name="LAST_COMMIT_MESSAGE" value="Redirection et image fonctionnel manque seulement suppressio et modif et l'acceuil" />
+    <MESSAGE value="Redirectrion et image fonctionnel manque suelement suppression et modification" />
+    <option name="LAST_COMMIT_MESSAGE" value="Redirectrion et image fonctionnel manque suelement suppression et modification" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2460" y="175" key="#CLI_Interpreters" timestamp="1605207144568">
@@ -288,12 +288,12 @@
     </state>
     <state x="2381" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605496243714" />
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603729260189" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607237689667">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607237812320">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607220253951" />
     <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607202483101" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607237689667" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607237812320" />
     <state x="1986" y="220" width="1893" height="1027" key="dock-window-1" timestamp="1607143551441">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

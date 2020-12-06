@@ -122,7 +122,7 @@ if ($_POST["requete"] == "insertUser") {
     }
 } elseif ($_POST["requete"] == "getVenteCat") {
     try {
-        $stmt = $connexion->prepare("select v.id as id,v.titre as titre,v.date as date from ventes v inner join users u on u.Id = v.Createur where categorie like :cat");
+        $stmt = $connexion->prepare("select v.id as id,v.titre as titre,v.date as date, p.Path from  ventes v inner join users u on u.Id = v.Createur inner join photo p on v.Courverture = p.Id where categorie like :cat");
         $stmt->bindParam(':cat', $_POST['cat']);
         $stmt->execute();
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
