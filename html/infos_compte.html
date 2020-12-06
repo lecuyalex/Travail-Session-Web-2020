@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/Style-Accueil.css">
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../js/accueil.js"></script>
+    <script src="../js/fonction.js"></script>
     <link rel="icon" type="image/png" href="../img/logo_white.png" style="color: white">
     <script src="https://kit.fontawesome.com/86aa9796b2.js" crossorigin="anonymous"></script>
     <script>
@@ -34,35 +34,80 @@
                         console.log(message)
                     }
                 });
-            } /* else
-              window.location.href = "login.html";*/
+            } else {
+                window.location.href = "login.html";
+            }
 
 
-            $('.form_info').on('submit', function (e) {
+            $(`.form_info`).on('submit', function (e) {
+                e.preventDefault()
+                if (checkInfo($('#email').val(), $('#prenom').val(), $('#nom').val(), $('#phone').val())) {
+                    console.log(true)
+                    $.ajax({
+                        url: "../bd.php",
+                        type: "POST",
+                        dataType: "json",
+                        data: {
+                            "requete": "changeInfo",
+                            "email": $('#email').val(),
+                            "prenom": $('#prenom').val(),
+                            "nom": $("#nom").val(),
+                            "phone": $("#phone").val(),
+                            "user": user
+
+                        },
+                        success: function (reponse) {
+                            console.log(reponse)
+                            alert("Les informations ont été mis à jour")
+                            window.location.href = "infos_compte.html?user=" + user;
+                        },
+                        error: function (message) {
+                            console.log(message.message)
+                        }
+                    });
+                }
+
+            });
+
+            $('.form_password').on('submit', function (e) {
                 e.preventDefault()
                 $.ajax({
                     url: "../bd.php",
                     type: "POST",
                     dataType: "json",
                     data: {
-                        "requete": "changeInfo",
-                        "email": $("#email").val(),
-                        "prenom": $("#prenom").val(),
-                        "nom": $("#nom").val(),
-                        "phone": $("#phone").val()
+                        "requete": "checkPwd",
+                        "pwd": $("#present_pwd").val(),
+                        "user": user
+
                     },
                     success: function (reponse) {
-                    alert("Les informations ont été mis à jour")
+                        if (checkPwd($("#present_pwd").val(), $("#new_pwd").val(), $("#new_verif").val(), reponse)){
+                            $.ajax({
+                                url: "../bd.php",
+                                type: "POST",
+                                dataType: "json",
+                                data: {
+                                    "requete": "changePwd",
+                                    "pwd": $('#new_pwd').val(),
+                                    "user": user
+                                },
+                                success: function (reponse) {
+                                    console.log(reponse)
+                                    alert("Mot de passe changé")
+                                    window.location.href = "infos_compte.html?user=" + user;
+                                },
+                                error: function (message) {
+                                    console.log(message.message)
+                                }
+                            });
+
+                        }
                     },
-                    error: function (message, e) {
-                        console.log(message)
+                    error: function (reponse) {
+                        console.log(JSON.stringify(reponse))
                     }
                 });
-            });
-
-            $('.form_password').on('submit', function (e) {
-                e.preventDefault()
-
             })
         })
     </script>
@@ -101,44 +146,60 @@
                 <input type="email" id="email" name="email"/>
                 <i class="fas fa-envelope"></i>
             </div>
+            <label class="errorLabel" id="errorEmail"></label>
+
             <label class="typeInsert" for="prenom">Prenom</label>
             <div class="input-field">
                 <input type="text" id="prenom" name="prenom"/>
                 <i class="far fa-id-card"></i>
             </div>
+            <label class="errorLabel" id="errorFirstName"></label>
+
             <label class="typeInsert" for="nom">Nom de famille</label>
             <div class="input-field">
-                <input type="text" id="nom" name="nom"/>
+                <input type="" id="nom" name="nom"/>
                 <i class="far fa-id-card"></i>
             </div>
+            <label class="errorLabel" id="errorName"></label>
+
             <label class="typeInsert" for="phone">Telephone</label>
             <div class="input-field">
-                <input type="text" id="phone" name="phone"/>
+                <input type="number" id="phone" name="phone" placeholder="##########"/>
                 <i class="fas fa-phone"></i>
             </div>
-            <input type="submit" value="Sauvegarder" class="btn solid" id="bt_change_info"/>
+            <label class="errorLabel" id="errorPhone"></label>
+
+            <input type="submit" value="Sauvegarder" class="button solid" id="bt_change_info"/>
         </form>
     </div>
 
     <div class="change_password">
         <form class="form_password">
+
             <h2 class="title">Changer votre mot de passe</h2>
+            <label class="errorLabel" id="error_form_password"></label>
+
             <label class="typeInsert" for="present_pwd">Mot de passe actuel</label>
             <div class="input-field">
                 <input type="password" id="present_pwd" name="present_pwd"/>
                 <i class="fas fa-lock"></i>
             </div>
+            <label class="errorLabel" id="errorPresentPwd"></label>
+
             <label class="typeInsert" for="new_pwd">Nouveau mot de passe</label>
             <div class="input-field">
                 <input type="password" id="new_pwd" name="new_pwd"/>
                 <i class="fas fa-lock"></i>
             </div>
+            <label class="errorLabel" id="errorNewPwd"></label>
+
             <label class="typeInsert" for="new_verif">Confirmation du nouveau mot de passe</label>
             <div class="input-field">
                 <input type="password" id="new_verif" name="new_verif"/>
                 <i class="fas fa-lock"></i>
             </div>
-            <input type="submit" value="Changer" class="btn solid" id="bt_change_password"/>
+            <label class="errorLabel" id="errorNewVerif"></label>
+            <input type="submit" value="Changer" class="button solid" id="bt_change_password"/>
         </form>
     </div>
 </div>

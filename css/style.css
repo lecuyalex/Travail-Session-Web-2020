@@ -181,7 +181,7 @@
 }
 
 
-.btn {
+.button{
     margin-top: 20px;
     width: 150px;
     background-color: #84a4d9;
@@ -194,6 +194,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: 0.5s;
-
-
+}
+.errorLabel {
+    color: indianred;
 }

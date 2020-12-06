@@ -9,9 +9,21 @@
     <script crossorigin="anonymous" src="https://kit.fontawesome.com/86aa9796b2.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
     <link rel="icon" type="image/png" href="../img/logo_white.png" style="color: white">
-    <script src="../js/accueil.js"></script>
+    <script src="../js/fonction.js"></script>
     <script>
         $(document).ready(function () {
+            let today = new Date();
+            let maxDate = new Date();
+
+            let dd = String(today.getDate()).padStart(2, '0');
+            let mm = String(today.getMonth() + 1).padStart(2, '0');
+            let yyyy = today.getFullYear();
+
+            today = yyyy + '-' + mm + '-' + dd;
+            maxDate = (yyyy + 1) + '-' + mm + '-' + dd;
+            $('#date').attr('min', today)
+            $('#date').attr('max', maxDate)
+
             let url = new URL(window.location.href);
             let user = url.searchParams.get("user")
             if (user) {
@@ -102,17 +114,17 @@
         <label for="titre">Titre :</label> <br>
         <input type="text" name="titre" id="titre"> <br><br>
         <label for="date">Date :</label> <br>
-        <input type="text" name="date" id="date"> <br><br>
+        <input type="date" name="date" id="date"> <br><br>
         <div>
             <label>Adresse :</label> <br>
             <label for="noRue">No de rue :</label> <br>
-            <input type="text" name="date" id="noRue"> <br><br>
+            <input type="text" name="noRue" id="noRue"> <br><br>
             <label for="rue">Rue :</label> <br>
-            <input type="text" name="date" id="rue"> <br><br>
+            <input type="text" name="rue" id="rue"> <br><br>
             <label for="ville">Ville :</label> <br>
-            <input type="text" name="date" id="ville"> <br><br>
-            <label for="codePostal">Code postal :</label> <br>
-            <input type="text" name="date" id="codePostal"> <br><br>
+            <input type="text" name="ville" id="ville"> <br><br>
+            <label for="codePostal" >Code postal :</label> <br>
+            <input type="text" name="codePostal" id="codePostal" minlength="6" maxlength="6"> <br><br>
         </div>
         <label for="cat-dropdown">Categorie :</label> <br>
         <select id="cat-dropdown" name="categorie" style="width: auto"></select> <br><br>

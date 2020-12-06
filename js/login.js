@@ -73,19 +73,9 @@ $(document).ready(function () {
         });
     })
 
-    $("#forgotPassword").click(function () {
-
-    });
 
 });
 
-
-function errorMessage(id, input) {
-    document.getElementById(id).innerHTML = "Le " + input + " ne peut pas etre vide";
-    setTimeout(function () {
-        document.getElementById(id).innerHTML = '';
-    }, 3000);
-}
 
 function checkVide(id) {
     return document.forms["sign-in-form"][id].value === "";
@@ -108,6 +98,13 @@ function verifSignin(email) {
     } else if (checkVide("verif_pwd")) {
         errorMessage("errorVerif", "verification ");
         return false;
+    } else if (!checkPwd(document.forms["sign-in-form"]["pwd"].value, document.forms["sign-in-form"][verif_pwd].value)) {
+        document.getElementById("errorVerif").innerHTML = "Les mots de passe doivent etre identique";
+        setTimeout(function () {
+            document.getElementById("errorVerif").innerHTML = '';
+        }, 3000);
+        return false;
+
     } else if (email === false) {
         document.getElementById("errorLabel").innerHTML = "Le courriel a déjà été utilisé";
         setTimeout(function () {
@@ -122,4 +119,8 @@ function verifSignin(email) {
 
 }
 
+function checkPwd(pwd, verif) {
+    return pwd === verif
+
+}
 
