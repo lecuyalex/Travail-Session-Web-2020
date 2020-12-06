@@ -25,7 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24fc7a72-32d7-4782-8c29-c47c0c89c41c" name="Default Changelist" comment="selection de categorie pour ajout">
+    <list default="true" id="24fc7a72-32d7-4782-8c29-c47c0c89c41c" name="Default Changelist" comment="Modification info fonctionnel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/Parametres.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/Parametres.html" afterDir="false" />
@@ -163,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607145598682</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Modification info fonctionnel">
+      <created>1607215836383</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1607215836383</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,7 +211,8 @@
     <MESSAGE value="affichage des ventes et des suivie" />
     <MESSAGE value="ajout fonctionnel sans validation" />
     <MESSAGE value="selection de categorie pour ajout" />
-    <option name="LAST_COMMIT_MESSAGE" value="selection de categorie pour ajout" />
+    <MESSAGE value="Modification info fonctionnel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modification info fonctionnel" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2460" y="175" key="#CLI_Interpreters" timestamp="1605207144568">
@@ -247,10 +255,10 @@
     </state>
     <state x="2381" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605496243714" />
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603729260189" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607202483101">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607215841567">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607145600616" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607215841567" />
     <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607202483101" />
     <state x="1986" y="220" width="1893" height="1027" key="dock-window-1" timestamp="1607143551441">
       <screen x="1920" y="0" width="1920" height="1040" />
@@ -266,10 +274,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="1924" y="-21" width="1575" height="1027" maximized="true" key="dock-window-3/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607203483593" />
-    <state x="1999" y="-11" width="1575" height="1027" maximized="true" key="dock-window-4" timestamp="1607208298319">
+    <state x="2081" y="-8" width="1575" height="1027" maximized="true" key="dock-window-4" timestamp="1607215879623">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="1999" y="-11" width="1575" height="1027" maximized="true" key="dock-window-4/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607208298319" />
+    <state x="2081" y="-8" width="1575" height="1027" maximized="true" key="dock-window-4/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607215879623" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1607144697947">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
