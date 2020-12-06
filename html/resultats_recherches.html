@@ -16,7 +16,7 @@
             let url = new URL(window.location.href);
             let cat = url.searchParams.get("cat")
             let recherche = url.searchParams.get("recherche")
-            if (cat){
+            if (cat) {
                 $.ajax({
                     url: "../bd.php",
                     type: "POST",
@@ -26,17 +26,16 @@
                         "cat": cat
                     },
                     success: function (reponse) {
-                        debugger;
                         reponse.forEach(function (item) {
-                            ajout(item['id'],item['titre'], item['date'])
+                            ajout(item['id'], item['titre'], item['date'])
                         })
                     },
                     error: function (message, e) {
 
                     }
                 });
-            }else{
-                $('#recherche_header').text("Resultat de recherche : "+recherche)
+            } else {
+                $('#recherche_header').text("Resultat de recherche : " + recherche)
                 $.ajax({
                     url: "../bd.php",
                     type: "POST",
@@ -46,11 +45,36 @@
                         "recherche": recherche
                     },
                     success: function (reponse) {
-                        debugger;
+                        let url = new URL(window.location.href);
+                        let user = url.searchParams.get("user")
                         reponse.forEach(function (item) {
-                            ajout(item['id'],item['titre'], item['date'])
+                            if (user) {
+                                $.ajax({
+                                    url: "../bd.php",
+                                    type: "POST",
+                                    dataType: "json",
+                                    data: {
+                                        "requete": "verifSuivie",
+                                        "user": user,
+                                        "vente_id": item['id']
+                                    },
+                                    success: function (rep) {
+
+                                        console.log(rep)
+                                        ajout(item['id'], item['titre'], item['date'], rep)
+                                    }
+                                    ,
+                                    error: function (rep) {
+                                    }
+                                });
+                            } else {
+                                ajout(item['id'], item['titre'], item['date'], false)
+                            }
+
+
                         })
-                    },
+                    }
+                    ,
                     error: function (message, e) {
 
                     }
@@ -58,7 +82,8 @@
             }
 
 
-        });
+        })
+        ;
     </script>
 </head>
 
@@ -92,19 +117,36 @@
 <div id="liste_suivi" class="liste_ventes">
 </div>
 <script>
-    function ajout(id,titre, date) {
-        let template =
-            " <div class=\"card\" >\n" +
-            "        <img src=\"image.php\"style=\"width:100%\">\n" +
-            "        <div class=\"container\">\n" +
-            "            <h4 class=\"Titre\">" + titre + "</h4>\n" +
-            "            <p class=\"date\">" + date + "</p>\n" +
-            "        <div class=\"div_bouton_vente\">\n" +
-            "             <a class=\"bouton_vente\" href='#'>" + 'Suivre' + "</a>\n" +
-            "        </div>\n" +
-            "        </div>\n" +
-            "    </div>"
-        $("#liste_suivi").append(template);
+    function ajout(id, titre, date, suivie) {
+
+        if (suivie) {
+            let template =
+                " <div class=\"card\" >\n" +
+                "        <img src=\"image.php\"style=\"width:100%\">\n" +
+                "        <div class=\"container\">\n" +
+                "            <h4 class=\"Titre\">" + titre + "</h4>\n" +
+                "            <p class=\"date\">" + date + "</p>\n" +
+                "        <div class=\"div_bouton_vente\">\n" +
+                "             <a class=\"bouton_vente\" onclick='nePlusSuivre("+id+")' href='#'>" + 'Ne plus suivre' + "</a>\n" +
+                "        </div>\n" +
+                "        </div>\n" +
+                "    </div>"
+            $("#liste_suivi").append(template);
+        } else {
+            let template =
+                " <div class=\"card\" >\n" +
+                "        <img src=\"image.php\"style=\"width:100%\">\n" +
+                "        <div class=\"container\">\n" +
+                "            <h4 class=\"Titre\">" + titre + "</h4>\n" +
+                "            <p class=\"date\">" + date + "</p>\n" +
+                "        <div class=\"div_bouton_vente\">\n" +
+                "             <a class=\"bouton_vente\" onclick='suivreVente("+id+")' href='#'>" + 'Suivre' + "</a>\n" +
+                "        </div>\n" +
+                "        </div>\n" +
+                "    </div>"
+            $("#liste_suivi").append(template);
+        }
+
     }
 </script>
 

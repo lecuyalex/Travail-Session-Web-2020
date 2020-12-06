@@ -112,6 +112,7 @@ if ($_POST["requete"] == "insertUser") {
         $stmt = $connexion->prepare("delete from suivie_vente where user_id = :user_id  and vente_id = :vente_id");
         $stmt->bindParam(':user_id', $_POST['user_id']);
         $stmt->bindParam(':vente_id', $_POST['vente_id']);
+
         $stmt->execute();
     } catch
     (PDOException $e) {
@@ -142,17 +143,60 @@ if ($_POST["requete"] == "insertUser") {
 } elseif ($_POST["requete"] == "getVenteRecherche") {
     try {
         $stmt = $connexion->prepare("select v.id as id,v.titre as titre,v.date as date from ventes v inner join users u on u.Id = v.Createur where v.titre like :recherche or v.Date like :recherche or u.Courriel like :recherche or u.nom like :recherche  ");
-        $stmt->bindValue(':recherche', '%'.$_POST['recherche'].'%');
+        $stmt->bindValue(':recherche', '%' . $_POST['recherche'] . '%');
         $stmt->execute();
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($results);
+    } catch
+    (PDOException $e) {
+        echo json_encode($e);
+    }
+} elseif ($_POST["requete"] == "changeInfo") {
+    try {
+        $stmt = $connexion->prepare("update users set Prenom = :prenom, Nom = :nom,Courriel = :email, No_Telephone = :phone where Id = :user ");
+        $stmt->bindParam(':nom', $_POST['nom']);
+        $stmt->bindParam(':prenom', $_POST['prenom']);
+        $stmt->bindParam(':email', $_POST['email']);
+        $stmt->bindParam(':phone', $_POST['phone']);
+        $id = getUserId($_POST['user'], $connexion)['Id'];
+        $stmt->bindParam(':user', $id);
+        $stmt->execute();
+        echo json_encode(true);
+    } catch
+    (PDOException $e) {
+        echo json_encode($e);
+    }
+} elseif ($_POST["requete"] == "changePwd") {
+    try {
+        $stmt = $connexion->prepare("update users set Mdp = :pwd where Id = :user ");
+        $stmt->bindParam(':pwd', $_POST['pwd']);
+        $id = getUserId($_POST['user'], $connexion)['Id'];
+        $stmt->bindParam(':user', $id);
+        $stmt->execute();
+        echo json_encode(true);
+    } catch
+    (PDOException $e) {
+        echo json_encode($e);
+    }
+} elseif ($_POST["requete"] == "checkPwd") {
+    try {
+        $stmt = $connexion->prepare("select * from users where Mdp = :mdp and Courriel=:user");
+        $stmt->bindParam(':user', $_POST['user']);
+        $stmt->bindParam(':mdp', $_POST['pwd']);
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if (sizeof($results) == 0) {
+            echo json_encode(false);
+        } else {
+            echo json_encode(true);
+        }
     } catch
     (PDOException $e) {
         echo json_encode($e);
     }
 } elseif ($_POST["requete"] == "getCategorie") {
     try {
-        $stmt = $connexion->prepare("select * from categorie");
+        $stmt = $connexion->prepare("select * from Categorie");
         $stmt->execute();
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($results);
@@ -160,12 +204,32 @@ if ($_POST["requete"] == "insertUser") {
     (PDOException $e) {
         echo json_encode($e);
     }
-}elseif ($_POST["requete"] == "getCategorie") {
+} elseif ($_POST["requete"] == "Suivre") {
     try {
-        $stmt = $connexion->prepare("select * from categorie");
+        $stmt = $connexion->prepare("insert into suivie_vente VALUES (:user_id,:vente_id)");
+        $id = getUserId($_POST['user'], $connexion)['Id'];
+        $stmt->bindParam(':user_id', $id);
+        $stmt->bindParam(':vente_id', $_POST['vente_id']);
+        $stmt->execute();
+        echo json_encode(true);
+    } catch
+    (PDOException $e) {
+        echo json_encode($e);
+    }
+} elseif ($_POST["requete"] == "verifSuivie") {
+    try {
+        $stmt = $connexion->prepare("select * from suivie_vente where user_id = :user_id and vente_id=:vente_id");
+
+        $id = getUserId($_POST['user'], $connexion)['Id'];
+        $stmt->bindParam(':user_id', $id);
+        $stmt->bindParam(':vente_id', $_POST['vente_id']);
         $stmt->execute();
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($results);
+        if (sizeof($results) == 0) {
+            echo json_encode(false);
+        } else {
+            echo json_encode(true);
+        }
     } catch
     (PDOException $e) {
         echo json_encode($e);

@@ -81,31 +81,25 @@ function changeRecherche(recherche) {
 }
 
 function nePlusSuivre(user_id, vente_id) {
-    let url = new URL(window.location.href);
-    let user = url.searchParams.get("user")
-    if (user) {
-        window.location.href = "accueil.html?user=" + user;
-    }
     $.ajax({
         url: "../bd.php",
         type: "POST",
         dataType: "json",
         data: {
             "requete": "NePasSuivre",
-            "user_id": vente_id,
+            "user": user_id,
             "vente_id": vente_id
 
         },
         success: function (reponse) {
             console.log(JSON.stringify(reponse))
-            window.location.href = "accueil.html?user=" + user;
+            $(document).refresh(true)
         },
         error: function (reponse) {
             console.log(JSON.stringify(reponse))
-            alert("Erreur dans le courriel et le mot de passe");
+
         }
     });
-
 }
 
 function ValidateName(text) {
@@ -169,4 +163,31 @@ function checkPwd(ancien, nouveau, verif, present) {
         return false;
     }
     return true;
+}
+
+function suivreVente(id) {
+
+    let url = new URL(window.location.href);
+    let user = url.searchParams.get("user")
+    if (user) {
+        $.ajax({
+            url: "../bd.php",
+            type: "POST",
+            dataType: "json",
+            data: {
+                "requete": "Suivre",
+                "user": user,
+                "vente_id": id
+            },
+            success: function (reponse) {
+
+            },
+            error: function (reponse) {
+            }
+        });
+    } else {
+        window.location.href = "login.html";
+    }
+
+
 }
