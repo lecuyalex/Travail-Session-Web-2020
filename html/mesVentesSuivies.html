@@ -15,23 +15,26 @@
         $(document).ready(function () {
             let url = new URL(window.location.href);
             let user = url.searchParams.get("user")
-            $.ajax({
-                url: "../bd.php",
-                type: "POST",
-                dataType: "json",
-                data: {
-                    "requete": "getVenteSuivie",
-                    "email": user
-                },
-                success: function (reponse) {
-                    reponse.forEach(function (item) {
-                        ajout(item['titre'], item['date'],item['user_id'],item['vente_id'])
-                    })
-                },
-                error: function (message, e) {
-                    alert("Erreur dans le courriel et le mot de passe");
-                }
-            });
+            if(user){
+                $.ajax({
+                    url: "../bd.php",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        "requete": "getVenteSuivie",
+                        "email": user
+                    },
+                    success: function (reponse) {
+                        reponse.forEach(function (item) {
+                            ajout(item['titre'], item['date'],item['user_id'],item['vente_id'],item['Path'])
+                        })
+                    },
+                    error: function (message, e) {
+                        alert("Erreur dans le courriel et le mot de passe");
+                    }
+                });
+            }
+
         });
 
 
@@ -65,14 +68,16 @@
 <div id="liste_suivi" class="liste_ventes">
 </div>
 <script>
-    function ajout(titre, date,user_id,vente_id) {
-        let template = " <div class=\"card\" >\n" +
-            "        <img src=\"image.php\"style=\"width:100%\">\n" +
+    function ajout(titre, date,user_id,vente_id,photo) {
+        let template = " " +
+            " <div class=\"card\"onclick='afficherSuivie(" + vente_id + ")'>\n" +
+            "        <div class=\"div_photo\">\n" +
+            "        <img src=" + photo + ">\n" +
+            "        </div>\n" +
             "        <div class=\"container\">\n" +
             "            <h4 class=\"Titre\">"+titre+"</h4>\n" +
             "            <p class=\"date\">"+date+"</p>\n" +
-            "        <div class=\"div_bouton_vente\">\n" +
-            "             <a onclick='nePlusSuivre("+user_id+","+vente_id+")' class=\"bouton_vente\" href='#'>" + 'Ne plus suivre' + "</a>\n" +
+            "        <div class=\"div_bouton_vente\">\n"
             "        </div>\n" +
             "        </div>\n" +
             "    </div>"

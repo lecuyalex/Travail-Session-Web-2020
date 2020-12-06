@@ -61,14 +61,16 @@ if ($_POST["requete"] == "insertUser") {
     }
 } elseif ($_POST["requete"] == "addVente") {
     try {
-        $stmt = $connexion->prepare("insert into ventes (Titre, Date, Courverture, Adresse, Createur,Categorie) values (:titre,:date,1,:adresse,:createur,:cat)");
+        $stmt = $connexion->prepare("insert into ventes (Titre, Date, Courverture, Adresse, Createur,Categorie) values (:titre,:date,:photo,:adresse,:createur,:cat)");
         $stmt->bindParam(':titre', $_POST['titre']);
         $stmt->bindParam(':date', $_POST['date']);
         $stmt->bindParam(':adresse', $_POST['adresse']);
         $stmt->bindParam(':cat', $_POST['categorie']);
         $id = getUserId($_POST['email'], $connexion)['Id'];
         $stmt->bindParam(':createur', $id)['Id'];
+        $stmt->bindParam(':photo', $_POST['photo']);
         $stmt->execute();
+        echo json_encode(true);
     } catch (PDOException $e) {
         echo json_encode($e);
     }
@@ -96,7 +98,7 @@ if ($_POST["requete"] == "insertUser") {
 
 } elseif ($_POST["requete"] == "getVenteSuivie") {
     try {
-        $stmt = $connexion->prepare("select sv.user_id as user_id,sv.vente_id as vente_id, v.titre as titre,v.date as date from suivie_vente sv inner join ventes v on sv.vente_id = v.Id inner join users u on sv.user_id = u.Id where Courriel like :email");
+        $stmt = $connexion->prepare("select sv.user_id as user_id,sv.vente_id as vente_id, v.titre as titre,v.date as date,p.Path from suivie_vente sv inner join ventes v on sv.vente_id = v.Id inner join users u on sv.user_id = u.Id inner join photo p on v.Courverture = p.Id where Courriel like :email");
         $stmt->bindParam(':email', $_POST['email']);
         $stmt->execute();
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -107,9 +109,9 @@ if ($_POST["requete"] == "insertUser") {
     }
 
 
-}  elseif ($_POST["requete"] == "getVente") {
+} elseif ($_POST["requete"] == "getVente") {
     try {
-        $stmt = $connexion->prepare("select v.id as id,v.titre as titre,v.date as date from ventes v inner join users u on u.Id = v.Createur where Courriel like :email");
+        $stmt = $connexion->prepare("select v.id as id,v.titre as titre,v.date  as date,p.Path from ventes v inner join users u on u.Id = v.Createur inner join photo p on v.Courverture = p.Id where Courriel like :email");
         $stmt->bindParam(':email', $_POST['email']);
         $stmt->execute();
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -131,7 +133,7 @@ if ($_POST["requete"] == "insertUser") {
     }
 } elseif ($_POST["requete"] == "getVenteRecherche") {
     try {
-        $stmt = $connexion->prepare("select v.id as id,v.titre as titre,v.date as date from ventes v inner join users u on u.Id = v.Createur where v.titre like :recherche or v.Date like :recherche or u.Courriel like :recherche or u.nom like :recherche  ");
+        $stmt = $connexion->prepare("select v.id as id,v.titre as titre,v.date, p.Path  from ventes v inner join users u on u.Id = v.Createur inner join photo p on v.Courverture = p.Id where v.titre like :recherche or v.Date like :recherche or u.Courriel like :recherche or u.nom like :recherche  ");
         $stmt->bindValue(':recherche', '%' . $_POST['recherche'] . '%');
         $stmt->execute();
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -193,13 +195,14 @@ if ($_POST["requete"] == "insertUser") {
     (PDOException $e) {
         echo json_encode($e);
     }
-}elseif ($_POST["requete"] == "NePasSuivre") {
+} elseif ($_POST["requete"] == "NePasSuivre") {
     try {
         $stmt = $connexion->prepare("delete from suivie_vente where user_id = :user_id  and vente_id = :vente_id");
         $id = getUserId($_POST['user'], $connexion)['Id'];
         $stmt->bindParam(':user_id', $id);
         $stmt->bindParam(':vente_id', $_POST['vente_id']);
         $stmt->execute();
+        echo json_encode(true);
     } catch
     (PDOException $e) {
         echo json_encode($e);
@@ -234,13 +237,13 @@ if ($_POST["requete"] == "insertUser") {
     (PDOException $e) {
         echo json_encode($e);
     }
-}elseif ($_POST["requete"] == "affichageVente") {
+} elseif ($_POST["requete"] == "affichageVente") {
     try {
-        $stmt = $connexion->prepare("select v.titre,v.date, concat(a.NoRue,' ',a.rue,' ',a.Ville,' ',a.CodePostal)as adresse, concat(u.Prenom,' ',u.nom)as createur from ventes v inner join adresse a on v.Adresse=a.Id inner join users u on v.Createur=u.id where v.id = :vente_id;");
+        $stmt = $connexion->prepare("select v.titre,v.date, concat(a.NoRue,' ',a.rue,' ',a.Ville,' ',a.CodePostal)as adresse, concat(u.Prenom,' ',u.nom)as createur,p.Path  from ventes v inner join adresse a on v.Adresse=a.Id inner join users u on v.Createur=u.id inner join photo p on v.Courverture = p.Id where v.id = :vente_id;");
         $stmt->bindParam(':vente_id', $_POST['vente_id']);
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-     echo json_encode($result);
+        echo json_encode($result);
     } catch
     (PDOException $e) {
         echo json_encode($e);

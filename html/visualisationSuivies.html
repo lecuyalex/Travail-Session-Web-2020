@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Hello Garage</title>
     <link href="../css/Style-Accueil.css" rel="stylesheet">
+    <link href="../css/Style.css" rel="stylesheet">
     <link href="../css/divider.css" rel="stylesheet">
     <script crossorigin="anonymous" src="https://kit.fontawesome.com/86aa9796b2.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
@@ -12,7 +13,57 @@
     <script src="../js/fonction.js"></script>
     <script>
         $(document).ready(function () {
+            let url = new URL(window.location.href);
+            let user = url.searchParams.get("user");
+            let vente_id = url.searchParams.get("id");
+            $.ajax({
+                url: "../bd.php",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    "requete": "affichageVente",
+                    "vente_id": vente_id
+                },
+                success: function (reponse) {
+                    $("#titre").text(reponse['titre'])
+                    $("#date").text(reponse['date'])
+                    $("#adresse").text(reponse['adresse'])
+                    $("#createur").text(reponse['createur'])
+                    $("#couverture").attr("src", reponse['Path'])
+                    if (user) {
+                        $.ajax({
+                            url: "../bd.php",
+                            type: "POST",
+                            dataType: "json",
+                            data: {
+                                "requete": "verifSuivie",
+                                "user": user,
+                                "vente_id": vente_id
+                            },
+                            success: function (rep) {
+                                if (rep) {
+                                    $("#reservation").attr("onClick", "nePlusSuivre(" + vente_id + ")").text("Ne plus suivre")
+                                } else {
+                                    $("#reservation").attr("onClick", "suivreVente(" + vente_id + ")").text("Suivre")
+                                }
 
+
+                            }
+                            ,
+                            error: function (rep) {
+                            }
+                        });
+                    } else {
+                        $("#reservation").attr("onClick", "suivreVente(" + vente_id + ")").text("Suivre")
+
+                    }
+
+                },
+                error: function (reponse) {
+
+
+                }
+            });
         })
     </script>
 </head>
@@ -44,16 +95,20 @@
 <div style="width:50%; margin-top:5%; box-shadow: 3px 3px 5px 6px #ccc; border-radius:10px; margin-left:25%; padding:2%;">
     <div style="display:flex; justify-content:space-around">
 
-        <div style="width:50%;">
-            <img src="Ressources-Supplementaires/vente-de-garage.jpg" style="width: 100%">
+        <div style="width:50%; height: 100%;background: #84a4d9">
+            <img id="couverture" style="width: 100%;height:auto; ">
         </div>
 
-        <div style="width:30%;">
-            <h1 id="titre">TitreGarage</h1>
-            <h2 id="date">Date</h2>
-            <h2 id="addresse">Adresse</h2>
-            <h2 id="createur">Créateur</h2>
-            <input type="submit" name="reservation" id="reservation" value="Suivre cette vente de garage">
+        <div class="show_vente">
+            <label for="titre">Titre</label>
+            <p class="autre" id="titre">TitreGarage</p>
+            <label for="date">Date</label>
+            <p class="autre" id="date">Date</p>
+            <label for="adresse">Adresse</label>
+            <p class="autre" id="adresse">Adresse</p>
+            <label for="createur">Createur</label>
+            <p class="autre" id="createur">Créateur</p>
+            <a id="reservation" href="#">Suivre cette vente de garage</a>
         </div>
 
     </div>

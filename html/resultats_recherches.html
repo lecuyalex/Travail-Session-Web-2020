@@ -27,7 +27,7 @@
                     },
                     success: function (reponse) {
                         reponse.forEach(function (item) {
-                            ajout(item['id'], item['titre'], item['date'])
+                            ajout(item['id'], item['titre'], item['date'],item)
                         })
                     },
                     error: function (message, e) {
@@ -60,15 +60,15 @@
                                     },
                                     success: function (rep) {
 
-                                        console.log(rep)
-                                        ajout(item['id'], item['titre'], item['date'], rep)
+                                        console.log(item['Path'])
+                                        ajout(item['id'], item['titre'],item['date'],item['Path'], rep)
                                     }
                                     ,
                                     error: function (rep) {
                                     }
                                 });
                             } else {
-                                ajout(item['id'], item['titre'], item['date'], false)
+                                ajout(item['id'], item['titre'], item['date'], item['photo'], false)
                             }
 
 
@@ -117,17 +117,19 @@
 <div id="liste_suivi" class="liste_ventes">
 </div>
 <script>
-    function ajout(id, titre, date, suivie) {
+    function ajout(id, titre, date,photo, suivie) {
 
         if (suivie) {
             let template =
                 " <div class=\"card\"onclick='afficherSuivie(" + id + ")'>\n" +
-                "        <img src=\"image.php\"style=\"width:100%\">\n" +
+                "        <div class=\"div_photo\">\n" +
+                "        <img src=" + photo + ">\n" +
+                "        </div>\n" +
                 "        <div class=\"container\">\n" +
                 "            <h4 class=\"Titre\">" + titre + "</h4>\n" +
                 "            <p class=\"date\">" + date + "</p>\n" +
                 "        <div class=\"div_bouton_vente\">\n" +
-                "             <a class=\"bouton_vente\" onclick='nePlusSuivre(" + id + ")' href='#'>" + 'Ne plus suivre' + "</a>\n" +
+                "               <p class=\"suivie\" >" + 'suivie' + "</p>\n" +
                 "        </div>\n" +
                 "        </div>\n" +
                 "    </div>"
@@ -135,12 +137,14 @@
         } else {
             let template =
                 " <div class=\"card\"onclick='afficherSuivie(" + id + ")'>\n" +
-                "        <img src=\"image.php\"style=\"width:100%\">\n" +
+                "        <div class=\"div_photo\">\n" +
+                "        <img src=" + photo + ">\n" +
+                "        </div>\n" +
                 "        <div class=\"container\">\n" +
                 "            <h4 class=\"Titre\">" + titre + "</h4>\n" +
                 "            <p class=\"date\">" + date + "</p>\n" +
                 "        <div class=\"div_bouton_vente\">\n" +
-                "             <a class=\"bouton_vente\" onclick='suivreVente(" + id + ")' href='#'>" + 'Suivre' + "</a>\n" +
+                "              <p class=\"suivie\" >" + 'Non-suivie' + "</p>\n" +
                 "        </div>\n" +
                 "        </div>\n" +
                 "    </div>"

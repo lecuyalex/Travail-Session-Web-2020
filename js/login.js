@@ -28,9 +28,7 @@ $(document).ready(function () {
 
                         },
                         success: function (reponse) {
-                            console.log(JSON.stringify(reponse))
-                            console.log("Utilisateur ajouter")
-                            //Retourne a la page principale
+                            window.location.href = "accueil.html?user=" +   $("#email").val();
                         },
                         error: function (message) {
                             console.log(message)
@@ -98,7 +96,7 @@ function verifSignin(email) {
     } else if (checkVide("verif_pwd")) {
         errorMessage("errorVerif", "verification ");
         return false;
-    } else if (!checkPwd(document.forms["sign-in-form"]["pwd"].value, document.forms["sign-in-form"][verif_pwd].value)) {
+    } else if (!checkPwd(document.forms["sign-in-form"]["pwd"].value, document.forms["sign-in-form"]["verif_pwd"].value)) {
         document.getElementById("errorVerif").innerHTML = "Les mots de passe doivent etre identique";
         setTimeout(function () {
             document.getElementById("errorVerif").innerHTML = '';

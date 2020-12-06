@@ -10,6 +10,7 @@ $(document).ready(function () {
 
 
     $('.logo_container').click(function () {
+
         let url = new URL(window.location.href);
         let user = url.searchParams.get("user")
         if (user) {
@@ -18,49 +19,71 @@ $(document).ready(function () {
             window.location.href = "accueil.html";
         }
     });
-    $('#btn_add_garage').click(function () {
-
+    $('#btn_add_garage').click(function (e) {
+        e.preventDefault()
+        let fichier = $('#image').prop('files')[0];
+        let form_data = new FormData();
+        form_data.append('fichier', fichier);
         $.ajax({
-            url: "../bd.php",
-            type: "POST",
+            url: 'upload.php',
             dataType: "json",
-            data: {
-                "requete": "addAdresse",
-                "noRue": $("#noRue").val(),
-                "rue": $("#rue").val(),
-                "ville": $("#ville").val(),
-                "codePostal": $("#codePostal").val(),
-            },
-            success: function (reponse) {
-                console.log(reponse['Id'])
-                let url = new URL(window.location.href);
-                let email = url.searchParams.get("user")
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+            type: 'post',
+
+            success: function (rep1) {
+
                 $.ajax({
                     url: "../bd.php",
                     type: "POST",
                     dataType: "json",
                     data: {
-                        "requete": "addVente",
-                        "titre": $("#titre").val(),
-                        "date": $("#date").val(),
-                        "adresse": reponse['Id'],
-                        "email": email,
-                        "categorie": $("#cat-dropdown").val()
+                        "requete": "addAdresse",
+                        "noRue": $("#noRue").val(),
+                        "rue": $("#rue").val(),
+                        "ville": $("#ville").val(),
+                        "codePostal": $("#codePostal").val(),
                     },
-                    success: function () {
-                        alert("Vente créer")
-                        window.location.href = "accueil.html?user=" + email;
+                    success: function (rep2) {
+                        let url = new URL(window.location.href);
+                        let email = url.searchParams.get("user")
+                        $.ajax({
+                            url: "../bd.php",
+                            type: "POST",
+                            dataType: "json",
+                            data: {
+                                "requete": "addVente",
+                                "titre": $("#titre").val(),
+                                "date": $("#date").val(),
+                                "adresse": rep2['Id'],
+                                "email": email,
+                                "categorie": $("#cat-dropdown").val(),
+                                "photo": rep1['Id']
+                            },
+                            success: function () {
+                                alert("Vente créer avec succes")
+                                let url = new URL(window.location.href);
+                                let user = url.searchParams.get("user")
+
+                                    window.location.href = "accueil.html?user=" + user
+                            },
+                            error: function () {
+                                alert("Erreur")
+                            }
+                        });
+
                     },
-                    error: function () {
-                        alert("Erreur")
+                    error: function (reponse) {
+                        alert(JSON.stringify(reponse))
                     }
                 });
-
             },
-            error: function (reponse) {
-                alert(JSON.stringify(reponse))
+            error: function () {
             }
         });
+
 
     })
 
@@ -144,7 +167,7 @@ function checkPwd(ancien, nouveau, verif, present) {
     return true;
 }
 
-function nePlusSuivre(user_id, vente_id) {
+function nePlusSuivre(vente_id) {
     let url = new URL(window.location.href);
     let user = url.searchParams.get("user")
     if (user) {
@@ -159,8 +182,7 @@ function nePlusSuivre(user_id, vente_id) {
 
             },
             success: function (reponse) {
-                console.log(JSON.stringify(reponse))
-                window.location.href = "resultats_recherches.html?user=" + user
+                location.reload()
             },
             error: function (reponse) {
                 console.log(JSON.stringify(reponse))
@@ -186,7 +208,7 @@ function suivreVente(id) {
                 "vente_id": id
             },
             success: function (reponse) {
-                window.location.href = "resultats_recherches.html?user=" + user
+                location.reload()
             },
             error: function (reponse) {
             }
@@ -199,6 +221,12 @@ function suivreVente(id) {
 function afficherSuivie(id) {
     let url = new URL(window.location.href);
     let user = url.searchParams.get("user")
-  window.location.href = "visualisatoinSuivies.html?user=" + user+"&id="+id
+    if (user) {
+        window.location.href = "visualisationSuivies.html?user=" + user + "&id=" + id
+    } else {
+        window.location.href = "login.html"
+    }
+
 
 }
+

@@ -108,29 +108,31 @@
     </div>
 
     <!--Informations-->
-    <div style="width:35%;">
+    <form enctype="multipart/form-data">
+        <div style="width:35%;">
 
-        <input hidden name="requete" value="uploadImage">
-        <label for="titre">Titre :</label> <br>
-        <input type="text" name="titre" id="titre"> <br><br>
-        <label for="date">Date :</label> <br>
-        <input type="date" name="date" id="date"> <br><br>
-        <div>
-            <label>Adresse :</label> <br>
-            <label for="noRue">No de rue :</label> <br>
-            <input type="text" name="noRue" id="noRue"> <br><br>
-            <label for="rue">Rue :</label> <br>
-            <input type="text" name="rue" id="rue"> <br><br>
-            <label for="ville">Ville :</label> <br>
-            <input type="text" name="ville" id="ville"> <br><br>
-            <label for="codePostal" >Code postal :</label> <br>
-            <input type="text" name="codePostal" id="codePostal" minlength="6" maxlength="6"> <br><br>
+            <input hidden name="requete" value="uploadImage">
+            <label for="titre">Titre :</label> <br>
+            <input type="text" name="titre" id="titre"> <br><br>
+            <label for="date">Date :</label> <br>
+            <input type="date" name="date" id="date"> <br><br>
+            <div>
+                <label>Adresse :</label> <br>
+                <label for="noRue">No de rue :</label> <br>
+                <input type="text" name="noRue" id="noRue"> <br><br>
+                <label for="rue">Rue :</label> <br>
+                <input type="text" name="rue" id="rue"> <br><br>
+                <label for="ville">Ville :</label> <br>
+                <input type="text" name="ville" id="ville"> <br><br>
+                <label for="codePostal">Code postal :</label> <br>
+                <input type="text" name="codePostal" id="codePostal" minlength="6" maxlength="6"> <br><br>
+            </div>
+            <label for="cat-dropdown">Categorie :</label> <br>
+            <select id="cat-dropdown" name="categorie" style="width: auto"></select> <br><br>
+
+            <input id="btn_add_garage" type="submit" name="confirmer" value="Confirmer"> <br><br>
         </div>
-        <label for="cat-dropdown">Categorie :</label> <br>
-        <select id="cat-dropdown" name="categorie" style="width: auto"></select> <br><br>
-
-        <input id="btn_add_garage" type="submit" name="confirmer" value="Confirmer"> <br><br>
-    </div>
+    </form>
 </div>
 
 

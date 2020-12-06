@@ -25,9 +25,8 @@
                         "email": user
                     },
                     success: function (reponse) {
-                        debugger;
                         reponse.forEach(function (item) {
-                            ajout(item['id'],item['titre'], item['date'])
+                            ajout(item['id'],item['titre'], item['date'],item['Path'])
                         })
                     },
                     error: function (message, e) {
@@ -72,10 +71,12 @@
 <div id="liste_suivi" class="liste_ventes">
 </div>
 <script>
-    function ajout(id,titre, date) {
+    function ajout(id,titre, date,photo) {
         let template =
-            " <div class=\"card\" >\n" +
-            "        <img src=\"image.php\"style=\"width:100%\">\n" +
+            " <div class=\"card\"onclick='afficherSuivie(" + id + ")'>\n" +
+            "        <div class=\"div_photo\">\n" +
+            "        <img src=" + photo + ">\n" +
+            "        </div>\n" +
             "        <div class=\"container\">\n" +
             "            <h4 class=\"Titre\">" + titre + "</h4>\n" +
             "            <p class=\"date\">" + date + "</p>\n" +
