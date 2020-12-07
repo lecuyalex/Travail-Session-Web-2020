@@ -4,7 +4,8 @@ $dossier = '../image/';
 $date = date_timestamp_get(new DateTime());
 $path = $_FILES['fichier']['name'];
 $ext = pathinfo($path, PATHINFO_EXTENSION);
-$chemin = $dossier . $date . "." . $ext;
+$chemin = $date . "." . $ext;
+
 
 if (move_uploaded_file($_FILES['fichier']['tmp_name'], $chemin)) {
     try {

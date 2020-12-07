@@ -93,13 +93,25 @@ $(document).ready(function () {
 function changeCategorie(id) {
     let url = new URL(window.location.href);
     let user = url.searchParams.get("user")
-    window.location.href = "resultats_recherches.html?user=" + user + "&cat=" + id;
+    if(user){
+        window.location.href = "resultats_recherches.html?user=" + user + "&cat=" + id;
+    }else{
+        window.location.href = "resultats_recherches.html?cat=" + id;
+    }
+
+
 }
 
 function changeRecherche(recherche) {
     let url = new URL(window.location.href);
     let user = url.searchParams.get("user")
-    window.location.href = "resultats_recherches.html?user=" + user + "&recherche=" + recherche;
+    if(user){
+        window.location.href = "resultats_recherches.html?user=" + user + "&recherche=" + recherche;
+    }else{
+        window.location.href = "resultats_recherches.html?recherche=" + recherche;
+    }
+
+
 
 }
 

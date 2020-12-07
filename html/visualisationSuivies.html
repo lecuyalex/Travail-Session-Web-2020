@@ -29,7 +29,7 @@
                     $("#date").text(reponse['date'])
                     $("#adresse").text(reponse['adresse'])
                     $("#createur").text(reponse['createur'])
-                    $("#couverture").attr("src", reponse['Path'])
+                    $("#couverture").attr("src",'../image/'+reponse['Path'])
                     if (user) {
                         $.ajax({
                             url: "../bd.php",
