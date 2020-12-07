@@ -75,6 +75,19 @@ if ($_POST["requete"] == "insertUser") {
         echo json_encode($e);
     }
 
+} elseif ($_POST["requete"] == "supprimer") {
+    try {
+        $stmt = $connexion->prepare("delete from suivie_vente where vente_id=:vente_id ");
+        $stmt->bindParam(':vente_id', $_POST['vente_id']);
+        $stmt->execute();
+        $stmt = $connexion->prepare("delete from vente where id=:vente_id ");
+        $stmt->bindParam(':vente_id', $_POST['vente_id']);
+        $stmt->execute();
+        echo json_encode(true);
+    } catch (PDOException $e) {
+        echo json_encode($e);
+    }
+
 } elseif ($_POST["requete"] == "addAdresse") {
     try {
         $stmt = $connexion->prepare("INSERT INTO `adresse`( `NoRue`, `Rue`, `Ville`, `CodePostal`) VALUES (:noRue,:rue,:ville,:code)");

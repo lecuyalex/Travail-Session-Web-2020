@@ -25,7 +25,7 @@ $(document).ready(function () {
         let form_data = new FormData();
         form_data.append('fichier', fichier);
         $.ajax({
-            url: 'upload.php',
+            url: '../upload.php',
             dataType: "json",
             cache: false,
             contentType: false,
@@ -67,7 +67,7 @@ $(document).ready(function () {
                                 let url = new URL(window.location.href);
                                 let user = url.searchParams.get("user")
 
-                                    window.location.href = "accueil.html?user=" + user
+                                window.location.href = "accueil.html?user=" + user
                             },
                             error: function () {
                                 alert("Erreur")
@@ -93,9 +93,9 @@ $(document).ready(function () {
 function changeCategorie(id) {
     let url = new URL(window.location.href);
     let user = url.searchParams.get("user")
-    if(user){
+    if (user) {
         window.location.href = "resultats_recherches.html?user=" + user + "&cat=" + id;
-    }else{
+    } else {
         window.location.href = "resultats_recherches.html?cat=" + id;
     }
 
@@ -105,12 +105,11 @@ function changeCategorie(id) {
 function changeRecherche(recherche) {
     let url = new URL(window.location.href);
     let user = url.searchParams.get("user")
-    if(user){
+    if (user) {
         window.location.href = "resultats_recherches.html?user=" + user + "&recherche=" + recherche;
-    }else{
+    } else {
         window.location.href = "resultats_recherches.html?recherche=" + recherche;
     }
-
 
 
 }
@@ -237,6 +236,39 @@ function afficherSuivie(id) {
         window.location.href = "visualisationSuivies.html?user=" + user + "&id=" + id
     } else {
         window.location.href = "login.html"
+    }
+
+
+}
+
+function afficherMaVente(id) {
+    let url = new URL(window.location.href);
+    let user = url.searchParams.get("user")
+    if (user) {
+        window.location.href = "VisualisationGarage.html?user=" + user + "&id=" + id
+    } else {
+        window.location.href = "login.html"
+    }
+}
+
+function supprimer(id) {
+    if (confirm("Voulez-vous vraiment supprimer cette vente?")) {
+        $.ajax({
+            url: "../bd.php",
+            type: "POST",
+            dataType: "json",
+            data: {
+                "requete": "supprimer",
+                "vente_id": id
+            },
+            success: function (reponse) {
+                let url = new URL(window.location.href);
+                let user = url.searchParams.get("user")
+                window.location.href = "mes_ventes_de_garages.html?user=" + user
+            },
+            error: function (reponse) {
+            }
+        });
     }
 
 

@@ -15,7 +15,7 @@
         $(document).ready(function () {
             let url = new URL(window.location.href);
             let user = url.searchParams.get("user")
-            if(user){
+            if (user) {
                 $.ajax({
                     url: "../bd.php",
                     type: "POST",
@@ -26,14 +26,14 @@
                     },
                     success: function (reponse) {
                         reponse.forEach(function (item) {
-                            ajout(item['id'],item['titre'], item['date'],item['Path'])
+                            ajout(item['id'], item['titre'], item['date'], '../image/' + item['Path'])
                         })
                     },
                     error: function (message, e) {
 
                     }
                 });
-            }else
+            } else
                 window.location.href = "login.html"
 
         });
@@ -71,19 +71,16 @@
 <div id="liste_suivi" class="liste_ventes">
 </div>
 <script>
-    function ajout(id,titre, date,photo) {
+    function ajout(id, titre, date, photo) {
         let template =
-            " <div class=\"card\"onclick='afficherSuivie(" + id + ")'>\n" +
+            " <div class=\"card\"onclick='afficherMaVente(" + id + ")'>\n" +
             "        <div class=\"div_photo\">\n" +
-            "        <img src='../image/'" + photo + ">\n" +
+            "        <img src=" + photo + ">\n" +
             "        </div>\n" +
             "        <div class=\"container\">\n" +
             "            <h4 class=\"Titre\">" + titre + "</h4>\n" +
             "            <p class=\"date\">" + date + "</p>\n" +
-            "        <div class=\"div_bouton_vente\">\n" +
-            "             <a class=\"bouton_vente\" href='#'>" + 'Supprimer' + "</a>\n" +
-            "             <a class=\"bouton_vente\" href='#'>" + 'Modifier' + "</a>\n" +
-            "        </div>\n" +
+
             "        </div>\n" +
             "    </div>"
         $("#liste_suivi").append(template);

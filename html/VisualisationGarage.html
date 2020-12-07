@@ -5,15 +5,40 @@
     <meta charset="UTF-8">
     <title>Hello Garage</title>
     <link href="../css/Style-Accueil.css" rel="stylesheet">
+    <link href="../css/Style.css" rel="stylesheet">
     <link href="../css/divider.css" rel="stylesheet">
     <script crossorigin="anonymous" src="https://kit.fontawesome.com/86aa9796b2.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
     <link rel="icon" type="image/png" href="../img/logo_white.png" style="color: white">
     <script src="../js/fonction.js"></script>
     <script>
-        $(document).ready(function () {
 
-            $ajax
+        $(document).ready(function () {
+            let url = new URL(window.location.href);
+            let vente_id = url.searchParams.get("id");
+            $("#bt_supprimer").attr("onclick","supprimer("+vente_id+")")
+            $("#bt_modifier").attr("onclick","modifier("+vente_id+")")
+            $.ajax({
+                url: "../bd.php",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    "requete": "affichageVente",
+                    "vente_id": vente_id
+                },
+                success: function (reponse) {
+                    $("#titre").text(reponse['titre'])
+                    $("#date").text(reponse['date'])
+                    $("#adresse").text(reponse['adresse'])
+                    $("#createur").text(reponse['createur'])
+                    $("#couverture").attr("src", '../image/' + reponse['Path'])
+$("#bt_supprimer").attr("onclick","supprimer("+vente_id+")")
+                },
+                error: function (reponse) {
+
+
+                }
+            });
         })
     </script>
 </head>
@@ -45,16 +70,23 @@
 <div style="width:50%; margin-top:5%; box-shadow: 3px 3px 5px 6px #ccc; border-radius:10px; margin-left:25%; padding:2%;">
     <div style="display:flex; justify-content:space-around">
 
-        <div style="width:50%;">
-            <img src="Ressources-Supplementaires/vente-de-garage.jpg" style="width: 100%">
+        <div style="width:50%; height: 100%;background: #84a4d9">
+            <img id="couverture" style="width: 100%;height:auto; ">
         </div>
 
-        <div style="width:30%;">
-            <h1 id="titre">TitreGarage</h1>
-            <h2 id="date">Date</h2>
-            <h2 id="addresse">Adresse</h2>
-            <h2 id="createur">Créateur</h2>
-            <input type="submit" name="reservation" id="reservation" value="Suivre cette vente de garage">
+        <div class="show_vente">
+            <label for="titre">Titre</label>
+            <p class="autre" id="titre">TitreGarage</p>
+            <label for="date">Date</label>
+            <p class="autre" id="date">Date</p>
+            <label for="adresse">Adresse</label>
+            <p class="autre" id="adresse">Adresse</p>
+            <label for="createur">Createur</label>
+            <p class="autre" id="createur">Créateur</p>
+            <div class=div_bouton_vente>
+                <a class="bouton_vente" id="bt_supprimer" href='#'>Supprimer</a>
+                <a class="bouton_vente" id="bt_modifier" href='#'>Modifier</a>
+            </div>
         </div>
 
     </div>

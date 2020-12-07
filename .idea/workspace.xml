@@ -27,13 +27,13 @@
   <component name="ChangeListManager">
     <list default="true" id="24fc7a72-32d7-4782-8c29-c47c0c89c41c" name="Default Changelist" comment="Redirection et image fonctionnel manque seulement suppressio et modif et l'acceuil">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/creation_garage.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/creation_garage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bd.php" beforeDir="false" afterPath="$PROJECT_DIR$/bd.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/VisualisationGarage.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/VisualisationGarage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/mesVentesSuivies.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/mesVentesSuivies.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/mes_ventes_de_garages.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/mes_ventes_de_garages.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/resultats_recherches.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/resultats_recherches.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/upload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/visualisationSuivies.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/visualisationSuivies.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/modification.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/modification.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/fonction.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/fonction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/upload.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,15 +83,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Travail-Session-Web-2020\img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\Travail-Session-Web-2020" />
       <recent name="C:\wamp64\www\Travail-Session-Web-2020\html" />
       <recent name="C:\Users\alecu\Documents\gitProject\Travail-Session-Web-2020\js" />
       <recent name="C:\Users\alecu\Documents\gitProject\Travail-Session-Web-2020\html" />
       <recent name="C:\wamp64\www\php" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\Travail-Session-Web-2020\img" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -301,11 +301,11 @@
     </state>
     <state x="2381" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605496243714" />
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603729260189" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607238427056">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607319888010">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607220253951" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607202483101" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607319888010" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607238427056" />
     <state x="1986" y="220" width="1893" height="1027" key="dock-window-1" timestamp="1607143551441">
       <screen x="1920" y="0" width="1920" height="1040" />
@@ -325,6 +325,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="674" y="216" width="976" height="1056" key="dock-window-4/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607220676625" />
+    <state x="667" y="119" width="585" height="801" key="find.popup" timestamp="1607322164837">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="119" width="585" height="801" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607322164837" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1607144697947">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
