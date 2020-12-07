@@ -17,7 +17,7 @@
             let url = new URL(window.location.href);
             let vente_id = url.searchParams.get("id");
             $("#bt_supprimer").attr("onclick","supprimer("+vente_id+")")
-            $("#bt_modifier").attr("onclick","modifier("+vente_id+")")
+            $("#bt_modifier").attr("onclick","afficherModification("+vente_id+")")
             $.ajax({
                 url: "../bd.php",
                 type: "POST",
@@ -32,7 +32,7 @@
                     $("#adresse").text(reponse['adresse'])
                     $("#createur").text(reponse['createur'])
                     $("#couverture").attr("src", '../image/' + reponse['Path'])
-$("#bt_supprimer").attr("onclick","supprimer("+vente_id+")")
+
                 },
                 error: function (reponse) {
 

@@ -19,6 +19,7 @@ $(document).ready(function () {
             window.location.href = "accueil.html";
         }
     });
+
     $('#btn_add_garage').click(function (e) {
         e.preventDefault()
         let fichier = $('#image').prop('files')[0];
@@ -85,8 +86,16 @@ $(document).ready(function () {
         });
 
 
-    })
+    });
 
+    $("#bt_modif_vente").click(function (e) {
+        e.preventDefault()
+        if ($('#image').get(0).files.length === 0) {
+            modifierSansImage($("#id_adresse").val(), $("#id_vente").val(), $("#id_photo").val())
+        } else {
+            modifierAvecImage($("#id_adresse").val(), $("#id_vente").val())
+        }
+    })
 
 });
 
@@ -114,12 +123,10 @@ function changeRecherche(recherche) {
 
 }
 
-
 function ValidateName(text) {
     let regex = /^[a-z]+$/i
     return regex.test(text)
 }
-
 
 function ValidateEmail(mail) {
     let regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
@@ -251,6 +258,16 @@ function afficherMaVente(id) {
     }
 }
 
+function afficherModification(id) {
+    let url = new URL(window.location.href);
+    let user = url.searchParams.get("user")
+    if (user) {
+        window.location.href = "modification.html?user=" + user + "&id=" + id
+    } else {
+        window.location.href = "login.html"
+    }
+}
+
 function supprimer(id) {
     if (confirm("Voulez-vous vraiment supprimer cette vente?")) {
         $.ajax({
@@ -272,5 +289,77 @@ function supprimer(id) {
     }
 
 
+}
+
+function modifierVente(vente_id, photo_id) {
+    $.ajax({
+        url: "../bd.php",
+        type: "POST",
+        dataType: "json",
+        data: {
+            "requete": "modifVente",
+            "vente_id": vente_id,
+            "titre": $("#titre").val(),
+            "date": $("#date").val(),
+            "categorie": $("#cat-dropdown").val(),
+            "photo": photo_id
+        },
+        success: function () {
+            alert("Vente modifier avec succes")
+            let url = new URL(window.location.href);
+            let user = url.searchParams.get("user")
+
+            window.location.href = "mes_ventes_de_garages.html?user=" + user
+        },
+        error: function () {
+            alert("Erreur")
+        }
+    });
+}
+
+function modifierSansImage(adresse_id, vente_id, photo_id) {
+    $.ajax({
+        url: "../bd.php",
+        type: "POST",
+        dataType: "json",
+        data: {
+            "requete": "modifierAdresse",
+            "adresse_id": adresse_id,
+            "noRue": $("#noRue").val(),
+            "rue": $("#Rue").val(),
+            "ville": $("#ville").val(),
+            "codePostal": $("#codePostal").val(),
+        },
+        success: function (r) {
+
+            modifierVente(vente_id, photo_id);
+        },
+        error: function (r) {
+            console.log(r)
+        }
+    });
+
+}
+
+function modifierAvecImage(adresse_id, vente_id) {
+    let fichier = $('#image').prop('files')[0];
+    let form_data = new FormData();
+    form_data.append('fichier', fichier);
+    $.ajax({
+        url: '../upload.php',
+        dataType: "json",
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: form_data,
+        type: 'post',
+
+        success: function (rep) {
+            modifierSansImage(adresse_id, vente_id, rep['Id'])
+        },
+        error: function (rep) {
+            console.log(rep)
+        }
+    });
 }
 

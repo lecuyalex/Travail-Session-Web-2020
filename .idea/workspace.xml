@@ -25,15 +25,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24fc7a72-32d7-4782-8c29-c47c0c89c41c" name="Default Changelist" comment="Redirection et image fonctionnel manque seulement suppressio et modif et l'acceuil">
+    <list default="true" id="24fc7a72-32d7-4782-8c29-c47c0c89c41c" name="Default Changelist" comment="suppression fonctionnel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bd.php" beforeDir="false" afterPath="$PROJECT_DIR$/bd.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/VisualisationGarage.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/VisualisationGarage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/mesVentesSuivies.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/mesVentesSuivies.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/mes_ventes_de_garages.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/mes_ventes_de_garages.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/infos_compte.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/infos_compte.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/modification.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/modification.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/fonction.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/fonction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/upload.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607238399270</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="suppression fonctionnel">
+      <created>1607322970843</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1607322970843</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,7 +259,8 @@
     <MESSAGE value="redirection vente" />
     <MESSAGE value="Redirection et image fonctionnel manque seulement suppressio et modif et l'acceuil" />
     <MESSAGE value="Redirectrion et image fonctionnel manque suelement suppression et modification" />
-    <option name="LAST_COMMIT_MESSAGE" value="Redirectrion et image fonctionnel manque suelement suppression et modification" />
+    <MESSAGE value="suppression fonctionnel" />
+    <option name="LAST_COMMIT_MESSAGE" value="suppression fonctionnel" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2460" y="175" key="#CLI_Interpreters" timestamp="1605207144568">
@@ -284,10 +290,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603743775841" />
-    <state x="1220" y="278" key="FileChooserDialogImpl" timestamp="1607147467541">
+    <state x="1220" y="278" key="FileChooserDialogImpl" timestamp="1607322793264">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1220" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607147467541" />
+    <state x="1220" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607322793264" />
     <state x="3140" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606756165746" />
     <state x="1220" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603995399765" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1607142898883">
@@ -312,10 +318,10 @@
     </state>
     <state x="1229" y="0" width="698" height="1047" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607141196940" />
     <state x="1986" y="220" width="1893" height="1027" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607143551441" />
-    <state x="1920" y="0" width="1575" height="1027" key="dock-window-2" timestamp="1607147907710">
+    <state x="2133" y="-8" width="1362" height="997" maximized="true" key="dock-window-2" timestamp="1607327972497">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="1920" y="0" width="1575" height="1027" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607147907710" />
+    <state x="2133" y="-8" width="1362" height="997" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607327972497" />
     <state x="28" y="70" width="1559" height="1027" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606856864658" />
     <state x="1924" y="-21" width="1575" height="1027" maximized="true" key="dock-window-3" timestamp="1607203483593">
       <screen x="1920" y="0" width="1920" height="1040" />

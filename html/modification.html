@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Information du compte</title>
+    <link rel="stylesheet" href="../css/Style-Accueil.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/fonction.js"></script>
+    <link rel="icon" type="image/png" href="../img/logo_white.png" style="color: white">
+    <script src="https://kit.fontawesome.com/86aa9796b2.js" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            let today = new Date();
+            let maxDate
+            let dd = String(today.getDate()).padStart(2, '0');
+            let mm = String(today.getMonth() + 1).padStart(2, '0');
+            let yyyy = today.getFullYear();
+            today = yyyy + '-' + mm + '-' + dd;
+            maxDate = (yyyy + 1) + '-' + mm + '-' + dd;
+            $('#date').attr('min', today)
+            $('#date').attr('max', maxDate)
+            let url = new URL(window.location.href);
+            let user = url.searchParams.get("user");
+            let vente_id = url.searchParams.get("id");
+            if (user) {
+                $.ajax({
+                    url: "../bd.php",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        "requete": "getCategorie",
+                    },
+                    success: function (reponse) {
+                        reponse.forEach(function (item) {
+                            let option = new Option(item['nom_categorie'], item['id']);
+                            $('#cat-dropdown').append($(option));
+
+
+                        });
+                    },
+                    error: function (reponse) {
+
+                    }
+                });
+                $.ajax({
+                    url: "../bd.php",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        "requete": "modifMaVente",
+                        "vente_id": vente_id
+                    },
+                    success: function (reponse) {
+                        $("#titre").val(reponse['titre'])
+                        $("#date").val(reponse['date'])
+                        $("#cat-dropdown").val(reponse['categorie'])
+                        $("#noRue").val(reponse['NoRue'])
+                        $("#Rue").val(reponse['Rue'])
+                        $("#ville").val(reponse['Ville'])
+                        $("#codePostal").val(reponse['CodePostal'])
+                        $("#couverture").attr("src", '../image/' + reponse['Path'])
+                        $("#id_adresse").val(reponse['adresse'])
+                        $("#id_photo").val(reponse['courverture'])
+                        $("#id_vente").val(vente_id)
+                    },
+                    error: function (message, e) {
+                        console.log(message)
+                    }
+                });
+            } else {
+                window.location.href = "login.html";
+            }
+
+
+        })
+    </script>
+</head>
+
+<!--Body du site-->
+<body style="background-color:#f8f9f9">
+<!--Partie principale du site-->
+<header>
+
+    <div class="logo_container">
+        <img src="Ressources-Supplementaires/logo.png">
+    </div>
+    <p>Compte > Information</p>
+    <div class="searchbar">
+        <input class="search_text" name="search_text" placeholder="Recherche..." type="text"/>
+        <button class="btSearch"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="header-user">
+
+        <a id="login-btn" class="login" href="login.html">Se connecter</a>
+        <a id="user-btn" class="user-btn" href="signin.html">Créer un compte</a>
+    </div>
+    </div>
+
+
+</header>
+<div class="change_div">
+    <div class="change_info">
+        <form class="form_info" id="form_info">
+            <input type="hidden" id="id_photo">
+            <input type="hidden" id="id_adresse">
+            <input type="hidden" id="id_vente">
+            <h2 class="title">Changer les information</h2>
+            <div>
+                <img id="couverture" src="" style="width:100%; height:300px;"> <br>
+                <label for="image">Insérer une image :</label>
+                <input type="file" id="image" name="image">
+                <script type="text/javascript">
+                    function readURL(input) {
+                        if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+
+                            reader.onload = function (e) {
+                                $('#couverture').attr('src', e.target.result);
+                            }
+                            reader.readAsDataURL(input.files[0]);
+                        }
+                    }
+
+                    $("#image").change(function () {
+                        readURL(this);
+                    });
+                </script>
+            </div>
+
+            <label class="typeInsert" for="titre">Titre</label>
+            <div class="input-field">
+                <input type="text" id="titre" name="titre"/>
+            </div>
+            <label class="errorLabel" id="errorEmail"></label>
+
+            <label class="typeInsert" for="date">Date</label>
+            <div class="input-field">
+                <input type="date" id="date" name="date" style="width: 100%"/>
+            </div>
+            <label class="errorLabel" id="errorDate"></label>
+
+            <label class="typeInsert" for="cat-dropdown">Categorie</label>
+            <div class="input-field">
+                <select id="cat-dropdown" name="categorie" style="width: 100%"></select>
+            </div>
+            <label class="errorLabel" id="errorCAt"></label>
+            <h3 class="title">Adresse</h3>
+            <label class="typeInsert" for="titre">Numero de rue</label>
+            <div class="input-field">
+                <input type="number" id="noRue" name="noRue"/>
+            </div>
+            <label class="errorLabel" id="errorNoRue"></label>
+
+            <label class="typeInsert" for="titre">Rue</label>
+            <div class="input-field">
+                <input type="text" id="Rue" name="Rue"/>
+            </div>
+            <label class="errorLabel" id="errorRue"></label>
+
+
+            <label class="typeInsert" for="titre">Ville</label>
+            <div class="input-field">
+                <input type="text" id="ville" name="ville"/>
+            </div>
+            <label class="errorLabel" id="errorVille"></label>
+
+
+            <label class="typeInsert" for="titre">Code postal</label>
+            <div class="input-field">
+                <input type="text" id="codePostal" name="noRue" placeholder="X2X2X2" maxlength="6"
+                    />
+            </div>
+            <label class="errorLabel" id="errorCodePostal"></label>
+
+
+            <input type="submit" value="Sauvegarder" class="button solid" id="bt_modif_vente"/>
+        </form>
+    </div>
+
+</div>
+
+</body>

@@ -261,6 +261,45 @@ if ($_POST["requete"] == "insertUser") {
     (PDOException $e) {
         echo json_encode($e);
     }
+} elseif ($_POST["requete"] == "modifMaVente") {
+    try {
+        $stmt = $connexion->prepare("select v.titre,v.date,v.id,v.courverture,a.NoRue,a.Rue,a.Ville,a.CodePostal ,v.categorie,p.Path ,a.id as adresse from ventes v inner join adresse a on a.Id=v.Adresse inner join photo p on p.id=v.courverture where v.id=:vente_id");
+        $stmt->bindParam(':vente_id', $_POST['vente_id']);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        echo json_encode($result);
+    } catch
+    (PDOException $e) {
+        echo json_encode($e);
+    }
+} elseif ($_POST["requete"] == "modifierAdresse") {
+    try {
+        $stmt = $connexion->prepare("update adresse set NoRue=:noRue,Rue=:rue,Ville=:ville,CodePostal=:codePostal where Id=:adresse_id");
+        $stmt->bindParam(':adresse_id', $_POST['adresse_id']);
+        $stmt->bindParam(':noRue', $_POST['noRue']);
+        $stmt->bindParam(':rue', $_POST['rue']);
+        $stmt->bindParam(':ville', $_POST['ville']);
+        $stmt->bindParam(':codePostal', $_POST['codePostal']);
+        $stmt->execute();
+        echo json_encode(true);
+    } catch
+    (PDOException $e) {
+        echo json_encode($e);
+    }
+} elseif ($_POST["requete"] == "modifVente") {
+    try {
+        $stmt = $connexion->prepare("update ventes set Titre=:titre,Date=:date,categorie=:categorie,Courverture=:photo where Id=:vente_id");
+        $stmt->bindParam(':vente_id', $_POST['vente_id']);
+        $stmt->bindParam(':titre', $_POST['titre']);
+        $stmt->bindParam(':date', $_POST['date']);
+        $stmt->bindParam(':categorie', $_POST['categorie']);
+        $stmt->bindParam(':photo', $_POST['photo']);
+        $stmt->execute();
+        echo json_encode(true);
+    } catch
+    (PDOException $e) {
+        echo json_encode($e);
+    }
 }
 
 
