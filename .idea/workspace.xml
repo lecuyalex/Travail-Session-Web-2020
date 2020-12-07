@@ -25,13 +25,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24fc7a72-32d7-4782-8c29-c47c0c89c41c" name="Default Changelist" comment="suppression fonctionnel">
+    <list default="true" id="24fc7a72-32d7-4782-8c29-c47c0c89c41c" name="Default Changelist" comment="modification fonctionne">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bd.php" beforeDir="false" afterPath="$PROJECT_DIR$/bd.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/VisualisationGarage.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/VisualisationGarage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/infos_compte.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/infos_compte.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/modification.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/modification.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/fonction.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/fonction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/login.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,13 +73,14 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/20201019150211_Examen1Alexis_Lecuyer/Examen1Alexis Lecuyer" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/modification" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alecu\Desktop\modification" />
       <recent name="C:\wamp64\www\Travail-Session-Web-2020\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -121,6 +120,8 @@
       <workItem from="1607222722778" duration="14851000" />
       <workItem from="1607237763777" duration="660000" />
       <workItem from="1607299380481" duration="1022000" />
+      <workItem from="1607329822767" duration="2963000" />
+      <workItem from="1607357941328" duration="2390000" />
     </task>
     <task id="LOCAL-00001" summary="avancement">
       <created>1605816860141</created>
@@ -213,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607322970843</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="modification fonctionne">
+      <created>1607328995155</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1607328995155</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +268,8 @@
     <MESSAGE value="Redirection et image fonctionnel manque seulement suppressio et modif et l'acceuil" />
     <MESSAGE value="Redirectrion et image fonctionnel manque suelement suppression et modification" />
     <MESSAGE value="suppression fonctionnel" />
-    <option name="LAST_COMMIT_MESSAGE" value="suppression fonctionnel" />
+    <MESSAGE value="modification fonctionne" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification fonctionne" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2460" y="175" key="#CLI_Interpreters" timestamp="1605207144568">
@@ -281,10 +290,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="336" y="361" key="#SQL_Dialects/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607217387168" />
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607217589066">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607331914090">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607217589066" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607331914090" />
     <state x="2334" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606756449509" />
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603743775841">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -307,21 +316,21 @@
     </state>
     <state x="2381" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1605496243714" />
     <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603729260189" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607319888010">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607329002955">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607220253951" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607329002955" />
     <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607319888010" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607238427056" />
-    <state x="1986" y="220" width="1893" height="1027" key="dock-window-1" timestamp="1607143551441">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="447" y="51" width="1125" height="971" key="dock-window-1" timestamp="1607332604082">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1229" y="0" width="698" height="1047" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607141196940" />
+    <state x="447" y="51" width="1125" height="971" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607332604082" />
     <state x="1986" y="220" width="1893" height="1027" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1607143551441" />
-    <state x="2133" y="-8" width="1362" height="997" maximized="true" key="dock-window-2" timestamp="1607327972497">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="745" y="231" width="1362" height="997" key="dock-window-2" timestamp="1607329025469">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="2133" y="-8" width="1362" height="997" maximized="true" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607327972497" />
+    <state x="745" y="231" width="1362" height="997" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1607329025469" />
     <state x="28" y="70" width="1559" height="1027" key="dock-window-2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606856864658" />
     <state x="1924" y="-21" width="1575" height="1027" maximized="true" key="dock-window-3" timestamp="1607203483593">
       <screen x="1920" y="0" width="1920" height="1040" />

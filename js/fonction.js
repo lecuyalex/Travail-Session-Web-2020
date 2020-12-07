@@ -67,7 +67,6 @@ $(document).ready(function () {
                                 alert("Vente créer avec succes")
                                 let url = new URL(window.location.href);
                                 let user = url.searchParams.get("user")
-
                                 window.location.href = "accueil.html?user=" + user
                             },
                             error: function () {

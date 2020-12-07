@@ -28,7 +28,8 @@ $(document).ready(function () {
 
                         },
                         success: function (reponse) {
-                            window.location.href = "accueil.html?user=" +   $("#email").val();
+                            alert("utilisateur créer")
+                            window.location.href = "accueil.html?user=" + $("#email").val();
                         },
                         error: function (message) {
                             console.log(message)
@@ -57,12 +58,12 @@ $(document).ready(function () {
                 "password": $("#login_pwd").val(),
             },
             success: function (reponse) {
+
                 if (reponse === false) {
                     alert("Erreur dans le courriel et le mot de passe");
-                } else
-                    debugger;
-                window.location.href = "accueil.html?user=" + reponse['Courriel'];
-
+                } else{
+                    window.location.href = "accueil.html?user=" + reponse['Courriel'];
+                }
             },
             error: function (reponse) {
                 console.log(JSON.stringify(reponse))
@@ -70,8 +71,6 @@ $(document).ready(function () {
             }
         });
     })
-
-
 });
 
 
@@ -102,7 +101,6 @@ function verifSignin(email) {
             document.getElementById("errorVerif").innerHTML = '';
         }, 3000);
         return false;
-
     } else if (email === false) {
         document.getElementById("errorLabel").innerHTML = "Le courriel a déjà été utilisé";
         setTimeout(function () {
