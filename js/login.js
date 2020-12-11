@@ -1,7 +1,6 @@
 $(document).ready(function () {
     $("#bt_ajouter").click(function (e) {
         e.preventDefault()
-
         $.ajax({
             url: "../bd.php",
             type: "POST",
@@ -73,11 +72,19 @@ $(document).ready(function () {
     })
 });
 
-
+function ValidateEmail(mail) {
+    let regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+    return (regex.test(mail))
+}
 function checkVide(id) {
     return document.forms["sign-in-form"][id].value === "";
 }
-
+function errorMessage(id, input) {
+    document.getElementById(id).innerHTML = "Le " + input + " ne peut pas etre vide ou n'est pas valide";
+    setTimeout(function () {
+        document.getElementById(id).innerHTML = '';
+    }, 3000);
+}
 function verifSignin(email) {
 
     if (checkVide("name")) {
@@ -86,7 +93,7 @@ function verifSignin(email) {
     } else if (checkVide("lastname")) {
         errorMessage("errorLastName", "nom de famille");
         return false;
-    } else if (checkVide("email")) {
+    } else if (checkVide("email") ||  ValidateEmail(email)) {
         errorMessage("errorEmail", "Courriel");
         return false;
     } else if (checkVide("pwd")) {

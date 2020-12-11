@@ -1,4 +1,6 @@
 <?php
+
+
 try {
     $connexion = new PDO("mysql:host=206.167.140.56;dbname=420505ri_gr09;port=3306", "1846551", "1846551");
     $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -66,7 +68,7 @@ if ($_POST["requete"] == "insertUser") {
         $stmt->bindParam(':adresse', $_POST['adresse']);
         $stmt->bindParam(':cat', $_POST['categorie']);
         $id = getUserId($_POST['email'], $connexion)['Id'];
-        $stmt->bindParam(':createur', $id)['Id'];
+        $stmt->bindParam(':createur', $id);
         $stmt->bindParam(':photo', $_POST['photo']);
         $stmt->execute();
         echo json_encode(true);
@@ -79,8 +81,8 @@ if ($_POST["requete"] == "insertUser") {
         $stmt = $connexion->prepare("delete from suivie_vente where vente_id=:vente_id ");
         $stmt->bindParam(':vente_id', $_POST['vente_id']);
         $stmt->execute();
-        $stmt = $connexion->prepare("delete from ventes where id=:id ");
-        $stmt->bindParam(':id', $_POST['vente_id']);
+        $stmt = $connexion->prepare("delete from ventes where id=:vente_id ");
+        $stmt->bindParam(':vente_id', $_POST['vente_id']);
         $stmt->execute();
         echo json_encode(true);
     } catch (PDOException $e) {

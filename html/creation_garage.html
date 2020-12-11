@@ -6,6 +6,7 @@
     <title>Hello Garage</title>
     <link href="../css/Style-Accueil.css" rel="stylesheet">
     <link href="../css/divider.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
     <script crossorigin="anonymous" src="https://kit.fontawesome.com/86aa9796b2.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
     <link rel="icon" type="image/png" href="../img/logo_white.png" style="color: white">
@@ -23,6 +24,7 @@
             maxDate = (yyyy + 1) + '-' + mm + '-' + dd;
             $('#date').attr('min', today)
             $('#date').attr('max', maxDate)
+
 
             let url = new URL(window.location.href);
             let user = url.searchParams.get("user")
@@ -82,58 +84,86 @@
 
 <!--Partie infos-->
 
-<div style="padding:2%; width:50%; margin-left:25%; margin-top:2%; box-shadow: 3px 3px 5px 6px #ccc; border-radius:10px; display:flex; justify-content:space-around;">
-    <!--Photo-->
-
-    <div style="width:35%;">
-        <img id="couverture" src="" style="width:100%; height:300px;"> <br>
-        <label for="image">Insérer une image :</label>
-        <input type="file" id="image" name="image">
-        <script type="text/javascript">
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-
-                    reader.onload = function (e) {
-                        $('#couverture').attr('src', e.target.result);
-                    }
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-
-            $("#image").change(function () {
-                readURL(this);
-            });
-        </script>
-    </div>
-
-    <!--Informations-->
-    <form enctype="multipart/form-data">
-        <div style="width:35%;">
-
-            <input hidden name="requete" value="uploadImage">
-            <label for="titre">Titre :</label> <br>
-            <input type="text" name="titre" id="titre"> <br><br>
-            <label for="date">Date :</label> <br>
-            <input type="date" name="date" id="date"> <br><br>
+<div class="change_div">
+    <div class="change_info">
+        <form class="form_info" id="form_info">
+            <input type="hidden" id="id_photo">
+            <input type="hidden" id="id_adresse">
+            <input type="hidden" id="id_vente">
+            <h2 class="title">Changer les information</h2>
             <div>
-                <label>Adresse :</label> <br>
-                <label for="noRue">No de rue :</label> <br>
-                <input type="text" name="noRue" id="noRue"> <br><br>
-                <label for="rue">Rue :</label> <br>
-                <input type="text" name="rue" id="rue"> <br><br>
-                <label for="ville">Ville :</label> <br>
-                <input type="text" name="ville" id="ville"> <br><br>
-                <label for="codePostal">Code postal :</label> <br>
-                <input type="text" name="codePostal" id="codePostal" minlength="6" maxlength="6"> <br><br>
-            </div>
-            <label for="cat-dropdown">Categorie :</label> <br>
-            <select id="cat-dropdown" name="categorie" style="width: auto"></select> <br><br>
+                <img id="couverture" src="Ressources-Supplementaires/error-image-generic.png"
+                     style="width:100%; height:300px;"> <br>
+                <label for="image">Insérer une image :</label>
+                <input type="file" id="image" name="image"required>
+                <label class="errorLabel" id="errorImage"></label>
+                <script type="text/javascript">
+                    function readURL(input) {
+                        if (input.files && input.files[0]) {
+                            var reader = new FileReader();
 
-            <input id="btn_add_garage" type="submit" name="confirmer" value="Confirmer"> <br><br>
-        </div>
-    </form>
-</div>
+                            reader.onload = function (e) {
+                                $('#couverture').attr('src', e.target.result);
+                            }
+                            reader.readAsDataURL(input.files[0]);
+                        }
+                    }
+
+                    $("#image").change(function () {
+                        readURL(this);
+                    });
+                </script>
+            </div>
+
+            <label class="typeInsert" for="titre">Titre</label>
+            <div class="input-field">
+                <input type="text" id="titre" name="titre"required/>
+            </div>
+            <label class="errorLabel" id="errorTitre"></label>
+
+            <label class="typeInsert" for="date">Date</label>
+            <div class="input-field">
+                <input type="date" id="date" name="date" style="width: 100%"required/>
+            </div>
+            <label class="errorLabel" id="errorDate"></label>
+
+            <label class="typeInsert" for="cat-dropdown">Categorie</label>
+            <div class="input-field">
+                <select id="cat-dropdown" name="categorie" style="width: 100%"required></select>
+            </div>
+            <label class="errorLabel" id="errorCAt"></label>
+            <h3 class="title">Adresse</h3>
+            <label class="typeInsert" for="noRue">Numero de rue</label>
+            <div class="input-field">
+                <input type="number" id="noRue" name="noRue" min="1" required/>
+            </div>
+            <label class="errorLabel" id="errorNoRue"></label>
+
+            <label class="typeInsert" for="Rue">Rue</label>
+            <div class="input-field">
+                <input type="text" id="Rue" name="Rue"required/>
+            </div>
+            <label class="errorLabel" id="errorRue"></label>
+
+
+            <label class="typeInsert" for="ville">Ville</label>
+            <div class="input-field">
+                <input type="text" id="ville" name="ville"required/>
+            </div>
+            <label class="errorLabel" id="errorVille"></label>
+
+
+            <label class="typeInsert" for="noRue">Code postal</label>
+            <div class="input-field">
+                <input type="text" id="codePostal" name="noRue" placeholder="X2X2X2" minlength="6" maxlength="6"
+                        required/>
+            </div>
+            <label class="errorLabel" id="errorCodePostal"></label>
+
+
+            <input type="submit" value="Créer" class="button solid" id="btn_add_garage"/>
+        </form>
+    </div>
 
 
 </div>

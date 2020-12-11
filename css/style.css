@@ -63,7 +63,7 @@ div img {
     color: white;
     text-decoration: none;
     background-color: #84a4d9;
-display: flex;
+    display: flex;
     padding: 3px;
 }
 
@@ -94,11 +94,12 @@ display: flex;
     padding: 10px;
 }
 
-.div_bouton_vente{
+.div_bouton_vente {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+
 .div_photo {
     width: 100%;
     height: 75%;
@@ -107,7 +108,7 @@ display: flex;
 
 img {
     width: 100%;
-   height: 100%;
+    height: 100%;
 }
 
 .title {

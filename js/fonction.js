@@ -8,9 +8,9 @@ $(document).ready(function () {
         $('#login-btn').text("Se deconnecter")
     }
 
+    $('.logo_container').css("cursor","pointer")
 
     $('.logo_container').click(function () {
-
         let url = new URL(window.location.href);
         let user = url.searchParams.get("user")
         if (user) {
@@ -22,78 +22,86 @@ $(document).ready(function () {
 
     $('#btn_add_garage').click(function (e) {
         e.preventDefault()
-        let fichier = $('#image').prop('files')[0];
-        let form_data = new FormData();
-        form_data.append('fichier', fichier);
-        $.ajax({
-            url: '../upload.php',
-            dataType: "json",
-            cache: false,
-            contentType: false,
-            processData: false,
-            data: form_data,
-            type: 'post',
+        let ok = verifierDonnee();
+        if (ok) {
+            let fichier = $('#image').prop('files')[0];
+            let form_data = new FormData();
+            form_data.append('fichier', fichier);
+            $.ajax({
+                url: '../upload.php',
+                dataType: "json",
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
+                type: 'post',
 
-            success: function (rep1) {
+                success: function (rep1) {
 
-                $.ajax({
-                    url: "../bd.php",
-                    type: "POST",
-                    dataType: "json",
-                    data: {
-                        "requete": "addAdresse",
-                        "noRue": $("#noRue").val(),
-                        "rue": $("#rue").val(),
-                        "ville": $("#ville").val(),
-                        "codePostal": $("#codePostal").val(),
-                    },
-                    success: function (rep2) {
-                        let url = new URL(window.location.href);
-                        let email = url.searchParams.get("user")
-                        $.ajax({
-                            url: "../bd.php",
-                            type: "POST",
-                            dataType: "json",
-                            data: {
-                                "requete": "addVente",
-                                "titre": $("#titre").val(),
-                                "date": $("#date").val(),
-                                "adresse": rep2['Id'],
-                                "email": email,
-                                "categorie": $("#cat-dropdown").val(),
-                                "photo": rep1['Id']
-                            },
-                            success: function () {
-                                alert("Vente créer avec succes")
-                                let url = new URL(window.location.href);
-                                let user = url.searchParams.get("user")
-                                window.location.href = "accueil.html?user=" + user
-                            },
-                            error: function () {
-                                alert("Erreur")
-                            }
-                        });
+                    $.ajax({
+                        url: "../bd.php",
+                        type: "POST",
+                        dataType: "json",
+                        data: {
+                            "requete": "addAdresse",
+                            "noRue": $("#noRue").val(),
+                            "rue": $("#Rue").val(),
+                            "ville": $("#ville").val(),
+                            "codePostal": $("#codePostal").val(),
+                        },
+                        success: function (rep2) {
+                            let url = new URL(window.location.href);
+                            let email = url.searchParams.get("user")
+                            $.ajax({
+                                url: "../bd.php",
+                                type: "POST",
+                                dataType: "json",
+                                data: {
+                                    "requete": "addVente",
+                                    "titre": $("#titre").val(),
+                                    "date": $("#date").val(),
+                                    "adresse": rep2['Id'],
+                                    "email": email,
+                                    "categorie": $("#cat-dropdown").val(),
+                                    "photo": rep1['Id']
+                                },
+                                success: function () {
+                                    alert("Vente créer avec succes")
+                                    let url = new URL(window.location.href);
+                                    let user = url.searchParams.get("user")
+                                    window.location.href = "accueil.html?user=" + user
+                                },
+                                error: function () {
+                                    alert("Erreur")
+                                }
+                            });
 
-                    },
-                    error: function (reponse) {
-                        alert(JSON.stringify(reponse))
-                    }
-                });
-            },
-            error: function () {
-            }
-        });
+                        },
+                        error: function (reponse) {
+                            alert(JSON.stringify(reponse))
+                        }
+                    });
+                },
+                error: function () {
+                }
+            });
+
+        }
 
 
     });
 
     $("#bt_modif_vente").click(function (e) {
         e.preventDefault()
-        if ($('#image').get(0).files.length === 0) {
-            modifierSansImage($("#id_adresse").val(), $("#id_vente").val(), $("#id_photo").val())
-        } else {
-            modifierAvecImage($("#id_adresse").val(), $("#id_vente").val())
+        let ok = verifierDonnee();
+        if (ok) {
+            if ($('#image').get(0).files.length === 0) {
+                modifierSansImage($("#id_adresse").val(), $("#id_vente").val(), $("#id_photo").val())
+            } else {
+                modifierAvecImage($("#id_adresse").val(), $("#id_vente").val())
+            }
         }
+
     })
 
 });
@@ -137,8 +145,13 @@ function ValidatePhone(phone) {
     return regex.test(phone)
 }
 
+function ValidatePostalCode(CodePostal) {
+    let regex = /^[a-zA-Z]\d[a-zA-Z]\d[a-zA-Z]\d$/
+    return regex.test(CodePostal)
+}
+
 function errorMessage(id, input) {
-    document.getElementById(id).innerHTML = "Le " + input + " ne peut pas etre vide ou n'est pas valide";
+    document.getElementById(id).innerHTML = input + " ne peut pas etre vide ou n'est pas valide";
     setTimeout(function () {
         document.getElementById(id).innerHTML = '';
     }, 3000);
@@ -362,3 +375,41 @@ function modifierAvecImage(adresse_id, vente_id) {
     });
 }
 
+function verifierDonnee() {
+    if ($('#image').get(0).files.length === 0) {
+        errorMessage("errorImage", "L'image");
+        return false;
+    }
+
+    if ($('#titre').val() === "") {
+        errorMessage("errorTitle", "Le titre");
+        return false;
+    }
+
+    if ($('#date').val() === "") {
+        errorMessage("errorDate", "La date");
+        return false;
+    }
+
+    if ($('#noRue').val() === "") {
+        errorMessage("errorNoRue", "Le no de rue");
+        return false;
+    }
+
+    if ($('#Rue').val() === "") {
+        errorMessage("errorRue", "La rue");
+        return false;
+    }
+
+
+    if ($('#ville').val() === "") {
+        errorMessage("errorVille", "La ville");
+        return false;
+    }
+
+    if ($('#codePostal').val() === "" || !ValidatePostalCode($('#codePostal').val())) {
+        errorMessage("errorCodePostal", "code postal");
+        return false;
+    }
+    return true;
+}
